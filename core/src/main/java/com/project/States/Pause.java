@@ -69,6 +69,8 @@ public class Pause extends State{
 
     @Override
     public void dispose() {
-
+        if (pause != null) pause.dispose();
+        if (resume != null) resume.dispose();
+        if (back != null) back.dispose();
     }
 }

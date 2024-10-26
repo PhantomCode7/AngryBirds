@@ -33,7 +33,16 @@ public class GameScreen extends State{
     Sprite verticalButton ;
     Texture pig ;
     Sprite piggo ;
-
+    MediumPig mediumPig ;
+    SmallPig  smallPig ;
+    Texture pig2 ;
+    Sprite pigImage ;
+    Wooden wood ;
+    Iron iron ;
+    Texture ironHorizontal ;
+    Texture ironVertical ;
+    Sprite horizontal1 ;
+    Sprite vertical1 ;
 
 
 
@@ -42,11 +51,18 @@ public class GameScreen extends State{
 
     public GameScreen(StateManager manager) {
         super(manager);
+        pig2 = new Texture("Piggy_medium.png") ;
+        pigImage = new Sprite(pig2);
+        wood = new Wooden();
+        iron = new Iron();
+        mediumPig = new MediumPig() ;
+        smallPig = new SmallPig() ;
+        pigImage.setSize(smallPig.width, smallPig.height);
         wrong = new Texture ("wrong.png") ;
         right = new Texture ("right.png") ;
         pig = new Texture("Piggy_medium.png") ;
         piggo = new Sprite (pig) ;
-        piggo.setSize(50,50) ;
+        piggo.setSize(mediumPig.width, mediumPig.height) ;
         rightButton = new Sprite(right) ;
         wrongButton = new Sprite(wrong) ;
         background = new Texture("gameBackground.png") ;
@@ -82,12 +98,18 @@ public class GameScreen extends State{
         wrongButton.setSize(30,30) ;
         wrongButton.setPosition(20 , 10 ) ;
         rightButton.setPosition(750, 10) ;
-        horizontal = new Texture("horizontal.png") ;
-        vertical = new Texture("vertical.png") ;
+        horizontal = Wooden.horizontal ;
+        vertical = Wooden.vertical ;
         horizontalButton = new Sprite (horizontal) ;
         verticalButton = new Sprite (vertical) ;
-        horizontalButton.setSize(100,15);
-        verticalButton.setSize(15,100);
+        ironHorizontal = Iron.horizontal ;
+        ironVertical = Iron.vertical ;
+        horizontalButton.setSize(wood.horizontalWidth, wood.horizontalHeight);
+        verticalButton.setSize(wood.verticalWidth, wood.verticalHeight);
+        horizontal1 = new Sprite (ironHorizontal) ;
+        vertical1 = new Sprite (ironVertical) ;
+        horizontal1.setSize(iron.horizontalWidth, iron.horizontalHeight);
+        vertical1.setSize(iron.verticalWidth, iron.verticalHeight);
 
         //bigRed.setSize(50, 50);
 
@@ -154,6 +176,12 @@ public class GameScreen extends State{
         verticalButton.setPosition(685 , 165);
         verticalButton.draw(batch);
         piggo.setPosition(625 , 155);
+        vertical1.setPosition(500 , 50) ;
+        horizontal1.setPosition(500 , 150);
+        vertical1.draw(batch);
+        horizontal1.draw(batch);
+        pigImage.setPosition(545 , 50 ) ;
+        pigImage.draw(batch);
         piggo.draw(batch);
 
 
@@ -165,6 +193,14 @@ public class GameScreen extends State{
 
     @Override
     public void dispose() {
-
+        if (wrong != null) wrong.dispose();
+        if (right != null) right.dispose();
+        if (background != null) background.dispose();
+        if (sling != null) sling.dispose();
+        if (pause != null) pause.dispose();
+        if (horizontal != null) horizontal.dispose();
+        if (vertical != null) vertical.dispose();
+        if (pig != null) pig.dispose();
+        if (pig2 != null) pig2.dispose();
     }
 }

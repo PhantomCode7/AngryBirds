@@ -74,6 +74,9 @@ public class LosingScreen extends State{
 
     @Override
     public void dispose() {
+        if (image != null) image.dispose();
+        if (back != null) back.dispose();
+        if (replay != null) replay.dispose();
 
     }
 }

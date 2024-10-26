@@ -62,6 +62,9 @@ public class WinningScreen extends State{
 
     @Override
     public void dispose() {
+        if (win != null) win.dispose();
+        if (replay != null) replay.dispose();
+        if (nextLevel != null) nextLevel.dispose();
 
     }
 }

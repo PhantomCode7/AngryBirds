@@ -12,4 +12,9 @@ public class Maltida extends Birds{
     Maltida(int speed) {
         super(speed);
     }
+
+    void dropEgg()
+    {
+
+    }
 }

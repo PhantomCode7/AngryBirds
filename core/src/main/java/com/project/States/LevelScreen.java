@@ -137,6 +137,15 @@ public class LevelScreen extends State{
 
     @Override
     public void dispose() {
-
+        if (level != null) level.dispose();
+        if (level1 != null) level1.dispose();
+        if (level2 != null) level2.dispose();
+        if (level3 != null) level3.dispose();
+        if (level4 != null) level4.dispose();
+        if (level5 != null) level5.dispose();
+        if (level6 != null) level6.dispose();
+        if (level7 != null) level7.dispose();
+        if (level8 != null) level8.dispose();
+        if (back != null) back.dispose();
     }
 }

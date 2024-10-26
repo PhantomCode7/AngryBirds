@@ -10,4 +10,9 @@ public class BlueBird extends Birds{
     BlueBird(int speed) {
         super(speed);
     }
+
+    void split ()
+    {
+
+    }
 }
