@@ -9,9 +9,12 @@ public class Maltida extends Birds{
 
 
     static Texture image = new Texture  ("matilda_egg.png") ;
-    Maltida(int speed) {
-        super(speed);
+
+    Maltida ()
+    {
+        super() ;
     }
+
 
     void dropEgg()
     {

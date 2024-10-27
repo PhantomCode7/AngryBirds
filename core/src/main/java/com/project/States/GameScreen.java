@@ -43,6 +43,12 @@ public class GameScreen extends State{
     Texture ironVertical ;
     Sprite horizontal1 ;
     Sprite vertical1 ;
+    RedBird redBirdObject ;
+    BlueBird blueBirdObject ;
+    YellowBird yellowBirdObject ;
+    BlackBird blackBirdObject ;
+    BigRed bigRedObject ;
+    Maltida maltidaObject ;
 
 
 
@@ -51,6 +57,12 @@ public class GameScreen extends State{
 
     public GameScreen(StateManager manager) {
         super(manager);
+        redBirdObject = new RedBird();
+        blueBirdObject = new BlueBird();
+        yellowBirdObject = new YellowBird();
+        blackBirdObject = new BlackBird();
+        bigRedObject = new BigRed();
+        maltidaObject = new Maltida();
         pig2 = new Texture("Piggy_medium.png") ;
         pigImage = new Sprite(pig2);
         wood = new Wooden();
@@ -78,12 +90,12 @@ public class GameScreen extends State{
         bigRed = new Sprite (BigRed.image) ;
         slingShot = new Sprite (sling) ;
         slingShot.setSize(50,100);
-        redBird.setSize(50, 50);
-        blueBird.setSize(50, 30);
-        yellowBird.setSize(50, 50);
-        matilda.setSize(50, 50);
-        blackBird.setSize(50, 50);
-        bigRed.setSize(50, 50);
+        redBird.setSize(redBirdObject.width, redBirdObject.height);
+        blueBird.setSize(blueBirdObject.width, blueBirdObject.height);
+        yellowBird.setSize(yellowBirdObject.width, yellowBirdObject.height);
+        matilda.setSize(maltidaObject.width, maltidaObject.height);
+        blackBird.setSize(blackBirdObject.width, blackBirdObject.height);
+        bigRed.setSize(bigRedObject.width, bigRedObject.height);
         gameBackground.setSize(800,500);
         gameBackground.setPosition(0,0);
         slingShot.setPosition(125 , 50 ) ;

@@ -7,7 +7,12 @@ public class BigRed extends Birds{
 
 
     static Texture image = new Texture  ("big_red.png") ;
+
+    BigRed ()
+    {
+        super() ;
+    }
     BigRed(int speed) {
-        super(speed);
+        this.speed = speed;
     }
 }

@@ -2,9 +2,20 @@ package com.project.States;
 
 public class Birds {
     float speed ;
+    float width ;
+    float height ;
 
-    Birds ( int speed )
+
+    Birds ()
     {
-        this.speed = speed ;
+        height = 50 ;
+        width = 50 ;
     }
+
+   void setSpeed(float speed)
+   {
+       this.speed = speed;
+   }
+
+
 }
