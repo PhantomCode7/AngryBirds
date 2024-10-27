@@ -1,33 +1,15 @@
-# AngryBirds
-
-A [libGDX](https://libgdx.com/) project generated with [gdx-liftoff](https://github.com/libgdx/gdx-liftoff).
-
-This project was generated with a template including simple application launchers and an `ApplicationAdapter` extension that draws libGDX logo.
-
-## Platforms
-
-- `core`: Main module with the application logic shared by all platforms.
-- `lwjgl3`: Primary desktop platform using LWJGL3; was called 'desktop' in older docs.
-
-## Gradle
-
-This project uses [Gradle](https://gradle.org/) to manage dependencies.
-The Gradle wrapper was included, so you can run Gradle tasks using `gradlew.bat` or `./gradlew` commands.
-Useful Gradle tasks and flags:
-
-- `--continue`: when using this flag, errors will not stop the tasks from running.
-- `--daemon`: thanks to this flag, Gradle daemon will be used to run chosen tasks.
-- `--offline`: when using this flag, cached dependency archives will be used.
-- `--refresh-dependencies`: this flag forces validation of all dependencies. Useful for snapshot versions.
-- `build`: builds sources and archives of every project.
-- `cleanEclipse`: removes Eclipse project data.
-- `cleanIdea`: removes IntelliJ project data.
-- `clean`: removes `build` folders, which store compiled classes and built archives.
-- `eclipse`: generates Eclipse project data.
-- `idea`: generates IntelliJ project data.
-- `lwjgl3:jar`: builds application's runnable jar, which can be found at `lwjgl3/build/libs`.
-- `lwjgl3:run`: starts the application.
-- `test`: runs unit tests (if any).
-
-Note that most tasks that are not specific to a single project can be run with `name:` prefix, where the `name` should be replaced with the ID of a specific project.
-For example, `core:clean` removes `build` folder only from the `core` project.
+Hi , 
+To run the project you need to go to gradle -> project name -> tasks -> application ->run.
+After you run , a login/signup screen will be displayed , clicking on either of the buttons will lead
+you to the main menu .
+In main menu , there are three options , new game , load game and exit game , clicking on the new game 
+directly starts a new game (level 1 ) , clicking on load game leads you to level selection screen .
+Levels which are in white colour are locked levels and levels in the other colour are unlocked levels .
+Clicking on either of the unlocked level buttons  leads you to Game Screen , in Game screen there are three
+buttons , pause button , losing screen button ( cross in bottom left ) , winning screen (tick mark) button
+Clicking on pause leads you to pause screen. 
+Clicking on cross button leads you  to losing screen. 
+Clicking on tick mark button (in bottom right) leads you to winning screen . 
+Buttons on the winning screen , losing screen and the pause screen are self-explanatory
+Thank you for reading this .
+Have a nice day !! 
