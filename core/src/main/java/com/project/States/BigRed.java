@@ -10,9 +10,8 @@ public class BigRed extends Birds{
 
     BigRed ()
     {
+
         super() ;
     }
-    BigRed(int speed) {
-        this.speed = speed;
-    }
+
 }
