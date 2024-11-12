@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2bdde4f6-226d-498d-9fb9-ebe248c631de" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/BigRed.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Birds.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/BlackBird.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/BlueBird.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Maltida.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/RedBird.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/YellowBird.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Materials/Iron.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Materials/Wooden.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Pigs/BigPig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Pigs/MediumPig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Pigs/Pig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Pigs/SmallPig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Pause.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Pause.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/GameScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/LevelScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/LevelScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/LoginScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/LoginScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/LosingScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/LosingScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/MainScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/MainScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/WinningScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/WinningScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/State.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="AngryBirds" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="AngryBirds" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="AngryBirds" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Arne-Saknussemm-91&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/PhantomCode7/AngryBirds.git&quot;,
+    &quot;accountId&quot;: &quot;f000aa78-1eca-4dce-9c7a-e248b357fa60&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2oW5eKYgLLbdOqQrYAQwVBM0hDg" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.AngryBirds [run].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="AngryBirds [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="run" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.AngryBirds [run]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2bdde4f6-226d-498d-9fb9-ebe248c631de" name="Changes" comment="" />
+      <created>1730972585702</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1730972585702</updated>
+      <workItem from="1730972588036" duration="1871000" />
+      <workItem from="1731135378689" duration="7000" />
+      <workItem from="1731396997818" duration="65000" />
+      <workItem from="1731409587304" duration="2243000" />
+      <workItem from="1731420229265" duration="3378000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
