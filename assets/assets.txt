@@ -1,3 +1,5 @@
+back.png
+background_music.mp3
 backk.png
 backToMenu.png
 big_red.png
@@ -26,6 +28,7 @@ login.png
 LosingScreen.png
 MainScreen.png
 matilda_egg.png
+mute.png
 newGame.png
 nextLevel.png
 Pause.png
@@ -35,6 +38,8 @@ red_bird.png
 replayButton.png
 resume.png
 right.png
+settings.png
+settings_background.png
 signup.png
 slingShot.png
 ui/font-list.fnt
@@ -46,6 +51,7 @@ ui/uiskin.json
 ui/uiskin.png
 unknownHorizontal.png
 unknownVertical.png
+unmute.png
 vertical.png
 wallpaper.png
 wrong.png

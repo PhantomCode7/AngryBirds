@@ -215,8 +215,6 @@ public class GameScreen extends State {
         if (background != null) background.dispose();
         if (sling != null) sling.dispose();
         if (pause != null) pause.dispose();
-        if (horizontal != null) horizontal.dispose();
-        if (vertical != null) vertical.dispose();
         if (pig != null) pig.dispose();
         if (pig2 != null) pig2.dispose();
     }

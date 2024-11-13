@@ -12,13 +12,25 @@ public class StateManager {
         states = new Stack<State> ();
     }
 
-    public void push (State state)
-    {
+    public void push(State state) {
+        if (!states.isEmpty()) {
+            states.peek().pause();
+        }
         states.push(state);
     }
 
-    public void pop () {
-        states.pop() ;
+    public void pop() {
+        State oldState = states.pop();
+        oldState.dispose();
+        if (!states.isEmpty()) {
+            states.peek().resume();
+        }
+    }
+
+    public void set(State state) {
+        State oldState = states.pop();
+        oldState.dispose();
+        states.push(state);
     }
 
     public void update (float delta)
@@ -29,11 +41,5 @@ public class StateManager {
     public void render (SpriteBatch Batch)
     {
         states.peek().render(Batch ) ;
-    }
-
-    public void set (State state)
-    {
-        states.pop() ;
-        states.push(state) ;
     }
 }

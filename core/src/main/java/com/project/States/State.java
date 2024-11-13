@@ -22,5 +22,12 @@ public abstract class State {
     public abstract void render (SpriteBatch batch) ;
     public abstract void dispose() ;
 
+    public void pause() {
+        // Called when the state is paused
+    }
+
+    public void resume() {
+        // Called when the state is resumed
+    }
 
 }

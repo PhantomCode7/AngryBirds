@@ -19,6 +19,9 @@ public class MainScreen extends State
     Sprite loadGameButton ;
     Texture exit ;
     Sprite exitGameButton ;
+    Texture settingsTexture;
+    Sprite settingsButton;
+
     public MainScreen(StateManager manager) {
         super(manager);
         mainScreen = new Texture("MainScreen.png") ;
@@ -37,8 +40,10 @@ public class MainScreen extends State
         loadGameButton.setPosition( 350, 225);
         exitGameButton.setSize(100,50);
         exitGameButton.setPosition(350, 125) ;
-
-
+        settingsTexture = new Texture("settings.png");
+        settingsButton = new Sprite(settingsTexture);
+        settingsButton.setPosition(350, 25);
+        settingsButton.setSize(100, 50);
     }
 
     @Override
@@ -62,8 +67,11 @@ public class MainScreen extends State
             {
                 manager.set(new GameScreen(manager)) ;
             }
-
+            if (settingsButton.getBoundingRectangle().contains(touch.x, touch.y)) {
+                manager.push(new SettingsScreen(manager));
+            }
         }
+
     }
 
     @Override
@@ -80,6 +88,7 @@ public class MainScreen extends State
         newGameButton.draw(batch) ;
         loadGameButton.draw(batch) ;
         exitGameButton.draw (batch) ;
+        settingsButton.draw(batch);
         batch.end() ;
     }
 
@@ -88,6 +97,7 @@ public class MainScreen extends State
         mainScreen.dispose() ;
         newGame.dispose() ;
         loadGame.dispose() ;
+        settingsTexture.dispose();
         exit.dispose() ;
     }
 

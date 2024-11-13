@@ -31,7 +31,7 @@ public class Main extends ApplicationAdapter {
         sprite.setPosition(0,0);
         manager = new StateManager() ;
         manager.push(new LoginScreen(manager)) ;
-
+        MusicManager.getInstance().playMusic();
     }
 
     @Override
@@ -48,5 +48,6 @@ public class Main extends ApplicationAdapter {
     public void dispose() {
         batch.dispose();
         image.dispose();
+        MusicManager.getInstance().dispose();
     }
 }
