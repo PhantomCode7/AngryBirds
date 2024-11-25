@@ -1,15 +1,14 @@
 package com.project.States.Birds;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.math.Vector2;
 
-public class BlackBird  extends Birds {
+public class BlackBird extends Birds {
 
+    private static Texture image = new Texture  ("bomb.png") ;
 
-    private static Texture image = new Texture("bomb.png") ;
-
-    public BlackBird ()
-    {
-        super() ;
+    public BlackBird(Vector2 initialPosition) {
+        super("bomb.png", 50, 50, initialPosition);
     }
 
     void blast ()

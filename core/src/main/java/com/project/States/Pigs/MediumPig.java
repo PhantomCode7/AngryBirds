@@ -1,19 +1,12 @@
 package com.project.States.Pigs;
 
+import com.badlogic.gdx.math.Vector2;
+
 public class MediumPig extends Pig {
 
-
-
-    public MediumPig()
-    {
-        this.setWidth(50);
-        this.setHeight(50);
+    public MediumPig(Vector2 initialPosition) {
+        super("Piggy_medium.png", 40, 40, initialPosition);
     }
 
-
-    @Override
-    void getHit()
-    {
-
-    }
+    // Additional behaviors specific to SmallPig can be added here
 }

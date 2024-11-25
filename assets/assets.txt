@@ -7,9 +7,8 @@ blue_bird.png
 bomb.png
 EXIT.png
 gameBackground.png
-horizontal.png
-ironHorizontal.png
-ironVertical.png
+iron_horizontal.png
+iron_vertical.png
 level1.png
 level2.png
 level3.png
@@ -52,7 +51,8 @@ ui/uiskin.png
 unknownHorizontal.png
 unknownVertical.png
 unmute.png
-vertical.png
 wallpaper.png
+wood_horizontal.png
+wood_vertical.png
 wrong.png
 yellow_bird.png
