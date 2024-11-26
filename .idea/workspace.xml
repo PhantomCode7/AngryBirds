@@ -13,52 +13,12 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/assets.txt" beforeDir="false" afterPath="$PROJECT_DIR$/assets/assets.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/horizontal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/ironHorizontal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/ironVertical.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/vertical.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/core/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/project/States/Birds/BigRed.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/project/States/Birds/BigRed.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/project/States/Birds/Birds.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/project/States/Birds/Birds.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/project/States/Birds/BlackBird.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/project/States/Birds/BlackBird.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/project/States/Birds/BlueBird.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/project/States/Birds/BlueBird.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/project/States/Birds/Maltida.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/project/States/Birds/Maltida.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/project/States/Birds/RedBird.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/project/States/Birds/RedBird.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/project/States/Birds/YellowBird.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/project/States/Birds/YellowBird.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/project/States/Materials/Iron.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/project/States/Materials/Iron.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/project/States/Materials/Wooden.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/project/States/Materials/Wooden.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/project/States/Pigs/BigPig.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/project/States/Pigs/BigPig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/project/States/Pigs/MediumPig.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/project/States/Pigs/MediumPig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/project/States/Pigs/Pig.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/project/States/Pigs/Pig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/project/States/Pigs/SmallPig.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/project/States/Pigs/SmallPig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/project/States/Screens/GameScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/project/States/Screens/GameScreen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/project/States/Screens/LevelScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/project/States/Screens/LevelScreen.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/libs/core-$projectVersion.jar" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/libs/core-$projectVersion.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/compileTransaction/stash-dir/MainScreen.class.uniqueId6" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/tmp/jar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/jar/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/BigRed.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/BigRed.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Birds.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Birds.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/BlackBird.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/BlackBird.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/BlueBird.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/BlueBird.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Maltida.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Maltida.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/RedBird.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/RedBird.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/YellowBird.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/YellowBird.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Materials/Iron.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Materials/Iron.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Materials/Materials.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Materials/Materials.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Materials/Wooden.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Materials/Wooden.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Pigs/BigPig.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Pigs/BigPig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Pigs/MediumPig.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Pigs/MediumPig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Pigs/Pig.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Pigs/Pig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Pigs/SmallPig.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Pigs/SmallPig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/GameScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/LevelScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/LevelScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/assets.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lwjgl3/build/resources/main/assets.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/horizontal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/ironHorizontal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/ironVertical.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/resources/main/vertical.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,6 +170,11 @@
       <workItem from="1732357710043" duration="10979000" />
       <workItem from="1732412804756" duration="64000" />
       <workItem from="1732513098744" duration="566000" />
+      <workItem from="1732596192878" duration="1482000" />
+      <workItem from="1732613306999" duration="52000" />
+      <workItem from="1732624888711" duration="2752000" />
+      <workItem from="1732628108423" duration="19000" />
+      <workItem from="1732632895086" duration="2210000" />
     </task>
     <servers />
   </component>

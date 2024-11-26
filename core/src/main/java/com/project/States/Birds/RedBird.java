@@ -1,22 +1,16 @@
 package com.project.States.Birds;
 
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 
 public class RedBird extends Birds {
 
-    private static Texture image = new Texture  ("red_bird.png") ;
-
     public RedBird(Vector2 initialPosition) {
-        super("red_bird.png", 50, 50, initialPosition);
+        super("red_bird.png", 40, 40, initialPosition, 50); // Moderate impact power
     }
 
-    public static Texture getImage() {
-        return image;
-    }
-
-    public void setImage(Texture image) {
-        this.image = image;
+    // No special ability for RedBird
+    @Override
+    public void applySpecialAbility() {
+        // No action
     }
 }
-

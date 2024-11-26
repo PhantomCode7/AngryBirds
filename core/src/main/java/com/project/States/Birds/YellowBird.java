@@ -1,26 +1,18 @@
 package com.project.States.Birds;
 
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 
 public class YellowBird extends Birds {
 
-    private static Texture image = new Texture  ("yellow_bird.png") ;
-
     public YellowBird(Vector2 initialPosition) {
-        super("yellow_bird.png", 50, 50, initialPosition);
+        super("yellow_bird.png", 40, 40, initialPosition, 40); // Moderate impact power
     }
 
-    void increase_speed()
-    {
-
-    }
-
-    public static Texture getImage() {
-        return image;
-    }
-
-    public static void setImage(Texture image) {
-        YellowBird.image = image;
+    // Special ability: Gain extra speed mid-flight
+    @Override
+    public void applySpecialAbility() {
+        if (velocity.len() > 0) {
+            velocity.scl(2.0f); // Double speed
+        }
     }
 }

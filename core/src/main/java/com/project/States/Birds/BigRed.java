@@ -1,26 +1,18 @@
 package com.project.States.Birds;
 
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 
 public class BigRed extends Birds {
 
-    private static Texture image = new Texture  ("big_red.png") ;
-
     public BigRed(Vector2 initialPosition) {
-        super("big_red.png", 50, 50, initialPosition);
+        super("big_red.png", 50, 50, initialPosition, 100); // High impact power
     }
 
-    void increase_speed()
-    {
-
-    }
-
-    public static Texture getImage() {
-        return image;
-    }
-
-    public static void setImage(Texture image) {
-        BigRed.image = image;
+    // Special ability: Increase speed mid-flight
+    @Override
+    public void applySpecialAbility() {
+        if (velocity.len() > 0) { // If bird is already moving
+            velocity.scl(1.5f); // Increase speed by 50%
+        }
     }
 }

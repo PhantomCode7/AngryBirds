@@ -11,8 +11,9 @@ public abstract class Birds {
     protected Vector2 position;
     protected Vector2 velocity;
     protected Rectangle bounds;
+    protected float impactPower; // New property for impact power
 
-    public Birds(String texturePath, float width, float height, Vector2 initialPosition) {
+    public Birds(String texturePath, float width, float height, Vector2 initialPosition, float impactPower) {
         Texture texture = new Texture(texturePath);
         sprite = new Sprite(texture);
         sprite.setSize(width, height);
@@ -20,6 +21,7 @@ public abstract class Birds {
         sprite.setPosition(position.x, position.y);
         bounds = new Rectangle(position.x, position.y, width, height);
         velocity = new Vector2(0, 0);
+        this.impactPower = impactPower;
     }
 
     public void setPosition(float x, float y) {
@@ -44,10 +46,14 @@ public abstract class Birds {
         return bounds;
     }
 
-    /**
-     * Update bird's position based on its velocity and delta time.
-     * @param delta Time elapsed since last frame.
-     */
+    public float getImpactPower() { // New getter for impact power
+        return impactPower;
+    }
+
+    public void setImpactPower(float impactPower) { // Optional setter
+        this.impactPower = impactPower;
+    }
+
     public void updatePosition(float delta) {
         position.x += velocity.x * delta;
         position.y += velocity.y * delta;
@@ -55,34 +61,24 @@ public abstract class Birds {
         bounds.setPosition(position.x, position.y);
     }
 
-    /**
-     * Draw the bird on the screen.
-     * @param batch SpriteBatch used for drawing.
-     */
     public void draw(SpriteBatch batch) {
         sprite.draw(batch);
     }
 
-    /**
-     * Get the width of the bird's sprite.
-     * @return Width of the sprite.
-     */
     public float getWidth() {
         return sprite.getWidth();
     }
 
-    /**
-     * Get the height of the bird's sprite.
-     * @return Height of the sprite.
-     */
     public float getHeight() {
         return sprite.getHeight();
     }
 
-    /**
-     * Dispose of the bird's texture to free resources.
-     */
     public void dispose() {
         sprite.getTexture().dispose();
+    }
+
+    // New method for special abilities (default to no action)
+    public void applySpecialAbility() {
+        // No default behavior, to be overridden by subclasses if needed
     }
 }

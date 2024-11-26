@@ -21,7 +21,7 @@ import java.util.List;
  * Implements gravity, collision interactions, and bird launching.
  */
 public class GameScreen extends State {
-    private SpriteBatch batch;
+    private final SpriteBatch batch;
 
     private Sprite background;
     private Sprite slingshot;
@@ -31,12 +31,10 @@ public class GameScreen extends State {
     private List<Materials> materials; // List of materials
 
     private Vector2 birdInitialPosition;
-    private Vector2 birdVelocity;
-    private float gravity = -500f; // Gravity (pixels/second^2)
 
     private boolean isDragging = false;
     private boolean birdLaunched = false;
-    private Vector2 dragStart = new Vector2();
+    private final Vector2 dragStart = new Vector2();
     private Vector2 dragEnd = new Vector2();
 
     private Rectangle ground; // Invisible platform
@@ -180,7 +178,8 @@ public class GameScreen extends State {
         if (birdLaunched && currentBirdIndex < birds.size()) {
             Birds currentBird = birds.get(currentBirdIndex);
 
-            // Apply gravity
+            // Apply gravity (pixels/second^2)
+            float gravity = -500f;
             currentBird.getVelocity().y += gravity * delta;
 
             // Update bird's position based on velocity
@@ -230,7 +229,6 @@ public class GameScreen extends State {
                     // Remove material if it is destroyed
                     if (material.isDestroyed()) {
                         materials.remove(i);
-                        i--; // Adjust index after removal
                     }
 
                     // Stop checking for further collisions for this frame
