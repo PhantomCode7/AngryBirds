@@ -165,6 +165,16 @@ public class GameScreen extends State {
                 }
             }
         }
+
+        // Handle special ability trigger mid-flight
+        if (birdLaunched && currentBirdIndex < birds.size()) {
+            Birds currentBird = birds.get(currentBirdIndex);
+
+            // Trigger ability when user taps (or specify your condition, e.g., double-tap or key press)
+            if (Gdx.input.justTouched()) {
+                currentBird.applySpecialAbility(); // Call the bird's special ability
+            }
+        }
     }
 
     /**
