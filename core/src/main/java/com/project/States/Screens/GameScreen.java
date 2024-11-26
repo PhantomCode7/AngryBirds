@@ -16,19 +16,15 @@ import com.project.States.StateManager;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Manages the main game screen where gameplay occurs.
- * Implements gravity, collision interactions, and bird launching.
- */
 public class GameScreen extends State {
     private SpriteBatch batch;
 
     private Sprite background;
     private Sprite slingshot;
-    private List<Birds> birds; // List of all birds
-    private int currentBirdIndex = 0; // Current bird to launch
-    private List<Pig> pigs; // List of pigs
-    private List<Materials> materials; // List of materials
+    private List<Birds> birds;
+    private int currentBirdIndex = 0;
+    private List<Pig> pigs;
+    private List<Materials> materials;
 
     private Vector2 birdInitialPosition;
     private Vector2 birdVelocity;
@@ -39,7 +35,35 @@ public class GameScreen extends State {
     private Vector2 dragStart = new Vector2();
     private Vector2 dragEnd = new Vector2();
 
-    private Rectangle ground; // Invisible platform
+    private Rectangle ground;
+
+    private void destroyAbove(Materials baseMaterial) {
+        float baseY = baseMaterial.getBounds().y; // Y-coordinate of the destroyed block
+        boolean flag = false;
+        for (int i = 0; i < materials.size(); i++) {
+            Materials material = materials.get(i);
+            //boolean flag = false ;
+
+            // Check if the block is directly above the destroyed block
+            if (materials.get(i) != baseMaterial && material.getBounds().overlaps(baseMaterial.getBounds()) && material.getBounds().y >= baseY) {
+                flag = true;
+                destroyAbove(material);
+                for (int j = 0 ; j<pigs.size() ; j++) {
+                    Pig pig = pigs.get(j);
+                    if (pig.getBounds().overlaps(material.getBounds()))
+                    {
+                        pigs.remove(j);
+                        j--;
+                    }
+                }
+                materials.remove(i);
+                i--;
+            }
+        }
+
+
+    }
+
 
     public GameScreen(StateManager manager) {
         super(manager);
@@ -53,35 +77,23 @@ public class GameScreen extends State {
         initializeMaterials();
     }
 
-    /**
-     * Initializes the game background.
-     */
     private void initializeBackground() {
-        // Use your existing background sprite
+
         background = new Sprite(new Texture("gameBackground.png"));
-        background.setSize(800, 500); // Adjust to your game resolution
+        background.setSize(800, 500);
         background.setPosition(0, 0);
     }
 
-    /**
-     * Initializes the invisible ground platform.
-     */
     private void initializeGround() {
-        ground = new Rectangle(0, 0, 800, 10); // Invisible platform at the bottom
+        ground = new Rectangle(0, 0, 800, 10);
     }
 
-    /**
-     * Initializes the slingshot sprite.
-     */
     private void initializeSlingshot() {
         slingshot = new Sprite(new Texture("slingshot.png"));
-        slingshot.setSize(50, 100); // Adjust to your slingshot sprite size
-        slingshot.setPosition(90, 90); // Position the slingshot on the screen
+        slingshot.setSize(50, 100);
+        slingshot.setPosition(125 , 50);
     }
 
-    /**
-     * Initializes all bird types.
-     */
     private void initializeBirds() {
         birds = new ArrayList<>();
 
@@ -90,35 +102,35 @@ public class GameScreen extends State {
 
         // Add instances of your existing Birds classes
         birds.add(new RedBird(birdInitialPosition.cpy()));
+        birdInitialPosition = new Vector2(100,50) ;
         birds.add(new BlueBird(birdInitialPosition.cpy()));
+        birdInitialPosition = new Vector2(80,50);
         birds.add(new YellowBird(birdInitialPosition.cpy()));
+        birdInitialPosition = new Vector2(60,50);
         birds.add(new BlackBird(birdInitialPosition.cpy()));
+        birdInitialPosition = new Vector2(40,50) ;
         birds.add(new BigRed(birdInitialPosition.cpy()));
     }
 
-    /**
-     * Initializes all pigs in the level.
-     */
+
     private void initializePigs() {
         pigs = new ArrayList<>();
 
-        // Add instances of your existing Pig classes
-        pigs.add(new SmallPig(new Vector2(600, 100))); // Adjust positions as needed
-        pigs.add(new MediumPig(new Vector2(650, 100)));
+
+        pigs.add(new SmallPig(new Vector2(625, 50))); // Adjust positions as needed
+        pigs.add(new MediumPig(new Vector2(625, 150)));
     }
 
-    /**
-     * Initializes all materials in the level.
-     */
     private void initializeMaterials() {
         materials = new ArrayList<>();
 
         // Add instances of your existing Materials classes
-        materials.add(new Wooden("wood_horizontal.png", new Vector2(400, 100)));
-        materials.add(new Wooden("wood_vertical.png", new Vector2(400, 120)));
-
-        materials.add(new Iron("iron_horizontal.png", new Vector2(500, 100)));
-        materials.add(new Iron("iron_vertical.png", new Vector2(500, 120)));
+        materials.add(new Wooden("wood_vertical.png", 20 , 100 , new Vector2(600, 50)));
+        materials.add(new Wooden("wood_vertical.png", 20 , 100 , new Vector2( 685, 50)));
+        materials.add(new Wooden ("wood_horizontal.png" , 100 , 20 , new Vector2(600, 149)));
+        materials.add(new Iron("iron_vertical.png", 20 , 100 , new Vector2(600, 168)));
+        materials.add(new Iron("iron_vertical.png", 20 , 100 , new Vector2(685, 168)));
+        materials.add(new Iron ("iron_horizontal.png" , 100 , 20 , new Vector2(600, 267)));
     }
 
     /**
@@ -146,14 +158,18 @@ public class GameScreen extends State {
 
                     // Calculate the new position within a maximum drag distance
                     float maxDragDistance = 50f; // Maximum distance the bird can be dragged
-                    Vector2 dragVector = dragEnd.cpy().sub(birdInitialPosition);
+                    Vector2 dragVector = dragEnd.cpy().sub(slingshot.getX(), slingshot.getY());
                     if (dragVector.len() > maxDragDistance) {
                         dragVector.nor().scl(maxDragDistance);
-                        dragEnd = birdInitialPosition.cpy().add(dragVector);
+                        Vector2 v = new Vector2 (slingshot.getX() + slingshot.getWidth() / 2 - 25, slingshot.getY() + slingshot.getHeight()) ;
+                        dragEnd = v.cpy().add(dragVector);
+
                     }
 
                     // Move the bird to follow the drag
                     currentBird.setPosition(dragEnd.x - currentBird.getWidth() / 2, dragEnd.y - currentBird.getHeight() / 2);
+                    //currentBirdIndex++;
+                    //birds.get(currentBirdIndex).setPosition(  slingshot.getX() + slingshot.getWidth() / 2 - 25, slingshot.getY() + slingshot.getHeight());
                 }
             } else {
                 if (isDragging) {
@@ -161,7 +177,8 @@ public class GameScreen extends State {
                     isDragging = false;
 
                     // Calculate launch velocity: opposite direction of the drag
-                    Vector2 launchVelocity = birdInitialPosition.cpy().sub(dragEnd).scl(13f); // Adjust scaling factor as needed
+                    Vector2 v = new Vector2 (slingshot.getX() + slingshot.getWidth() / 2 - 25, slingshot.getY() + slingshot.getHeight()) ;
+                    Vector2 launchVelocity = v.cpy().sub(dragEnd).scl(13f); // Adjust scaling factor as needed
                     currentBird.setVelocity(launchVelocity);
                     birdLaunched = true;
                 }
@@ -169,15 +186,13 @@ public class GameScreen extends State {
         }
     }
 
-    /**
-     * Updates game logic, including applying gravity and handling collisions.
-     * @param delta Time elapsed since last frame.
-     */
+
     @Override
     public void update(float delta) {
         input();
+        boolean flag = false ;
 
-        if (birdLaunched && currentBirdIndex < birds.size()) {
+        if ( !flag && birdLaunched && currentBirdIndex < birds.size() ) {
             Birds currentBird = birds.get(currentBirdIndex);
 
             // Apply gravity
@@ -188,13 +203,18 @@ public class GameScreen extends State {
 
             // Check collision with ground
             if (currentBird.getPosition().y <= ground.height) {
+                currentBirdIndex++;
                 currentBird.setPosition(currentBird.getPosition().x, ground.height);
-                currentBird.setVelocity(new Vector2(0, 0)); // Corrected to pass Vector2
+                currentBird.setVelocity(new Vector2(0, 0));
                 birdLaunched = false;
-                currentBirdIndex++; // Move to next bird
+                //currentBirdIndex++;
+                if (currentBirdIndex < birds.size()) {
+                    birds.get(currentBirdIndex).setPosition(slingshot.getX() + slingshot.getWidth() / 2 - 25, slingshot.getY() + slingshot.getHeight());
+                }
+                flag = true; // Move to next bird
             }
 
-            // Check collision with pigs
+
             for (int i = 0; i < pigs.size(); i++) {
                 Pig pig = pigs.get(i);
                 if (currentBird.getBounds().overlaps(pig.getBounds())) {
@@ -209,46 +229,45 @@ public class GameScreen extends State {
                 }
             }
 
-            // Check collision with materials
-            // Check collision with materials
             for (int i = 0; i < materials.size(); i++) {
                 Materials material = materials.get(i);
 
                 if (currentBird.getBounds().overlaps(material.getBounds())) {
                     // Apply damage to the material
-                    material.takeDamage(50); // Bird deals 50 damage
+                    material.takeDamage(50);
+                    currentBird.setVelocity(new Vector2(0, 0)); // Stop the bird's velocity
 
-                    // Stop the bird's movement
-                    currentBird.setVelocity(new Vector2(0, 0));
-
-                    // Position the bird at the point of contact
-                    currentBird.setPosition(
-                        currentBird.getPosition().x,
-                        Math.max(currentBird.getPosition().y, material.getBounds().y + material.getBounds().height)
-                    );
-
-                    // Remove material if it is destroyed
                     if (material.isDestroyed()) {
+                        destroyAbove(material);
+                        for(int k = 0 ; k<pigs.size() ; k++) {
+                            Pig pig = pigs.get(k);
+                            if (pig.getBounds().overlaps(material.getBounds())) {
+                                pigs.remove(k);
+                                k-- ;
+                            }
+                        }
                         materials.remove(i);
                         i--; // Adjust index after removal
                     }
-
-                    // Stop checking for further collisions for this frame
                     break;
                 }
             }
 
 
-            // Check if bird goes off-screen
-            if (currentBird.getPosition().x < 0 || currentBird.getPosition().x > 800 ||
-                currentBird.getPosition().y < 0 || currentBird.getPosition().y > 500) {
+            if ( (!flag ) && (currentBird.getPosition().x < 0 || currentBird.getPosition().x > 800 ||
+                currentBird.getPosition().y < 0 || currentBird.getPosition().y > 500)) {
                 birdLaunched = false;
-                currentBirdIndex++; // Move to next bird
+                currentBirdIndex ++ ;
+                if (currentBirdIndex < birds.size()) {
+                    //currentBirdIndex++;
+                    birds.get(currentBirdIndex).setPosition(slingshot.getX() + slingshot.getWidth() / 2 - 25, slingshot.getY() + slingshot.getHeight());
+                    flag = true ;
+                }
             }
         }
 
-        // Check for game over or win conditions
-        if (currentBirdIndex >= birds.size()) {
+
+        if (currentBirdIndex >= birds.size() ) {
             if (pigs.isEmpty()) {
                 manager.set(new WinningScreen(manager));
             } else {
@@ -259,10 +278,7 @@ public class GameScreen extends State {
         }
     }
 
-    /**
-     * Renders all game elements on the screen.
-     * @param sb SpriteBatch used for drawing.
-     */
+
     @Override
     public void render(SpriteBatch sb) {
         batch.setProjectionMatrix(Main.viewport.getCamera().combined);
