@@ -13,6 +13,7 @@ public class Main extends ApplicationAdapter {
     private SpriteBatch batch;
     private Texture image;
     public static FitViewport viewport ;
+    public static int a = 1 ;
     Sprite sprite ;
     StateManager manager ;
 

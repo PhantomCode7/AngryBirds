@@ -224,7 +224,7 @@ public class GameScreen extends State {
                     bluesBird.getrightBird().updatePosition(delta);
                     handleCollision(bluesBird.getrightBird());
                     // Remove the right bird if it is out of bounds
-                    if (isOutOfBounds(bluesBird.getrightBird())) {
+                    if (isOutOfBounds(bluesBird.getrightBird()) ) {
                         birds.remove(bluesBird.getrightBird());
                     }
                 }
@@ -247,11 +247,14 @@ public class GameScreen extends State {
         // Check win/lose conditions
         if (currentBirdIndex >= birds.size()) {
             if (pigs.isEmpty()) {
+                Main.a++;
                 manager.set(new WinningScreen(manager));
+
             } else {
                 manager.set(new LosingScreen(manager));
             }
         } else if (pigs.isEmpty()) {
+            Main.a++ ;
             manager.set(new WinningScreen(manager));
         }
     }

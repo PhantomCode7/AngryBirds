@@ -9,7 +9,9 @@ gameBackground.png
 iron_horizontal.png
 iron_vertical.png
 level1.png
+Level2.0.png
 level2.png
+Level3.0.png
 level3.png
 level4.png
 level5.png
