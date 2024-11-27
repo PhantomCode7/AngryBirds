@@ -32,8 +32,8 @@ public class TheBlues extends Birds {
             rightBird.setVelocity(new Vector2(velocity.x, velocity.y));
 
             // Add the new birds to the GameScreen birds list
-            GameScreen.getBirds().add(leftBird);
-            GameScreen.getBirds().add(rightBird);
+          GameScreen.getBirds().add(leftBird);
+           GameScreen.getBirds().add(rightBird);
 
         }
     }

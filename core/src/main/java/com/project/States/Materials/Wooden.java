@@ -8,5 +8,5 @@ public class Wooden extends Materials {
         super(texturePath, width, height, initialPosition, 60); // Wooden has 50 HP
     }
 
-    // Additional behaviors specific to Wooden can be added here
+
 }

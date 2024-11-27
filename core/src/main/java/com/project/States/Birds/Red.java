@@ -10,7 +10,7 @@ public class Red extends Birds {
 
     @Override
     protected void triggerAbility() {
-        // Red bird does not have a special ability
+
         System.out.println("Red bird does not have a special ability");
     }
 }

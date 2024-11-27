@@ -44,7 +44,7 @@ public class GameScreen extends State {
             Materials material = materials.get(i);
             //boolean flag = false ;
 
-            // Check if the block is directly above the destroyed block
+
             if (materials.get(i) != baseMaterial && material.getBounds().overlaps(baseMaterial.getBounds()) && material.getBounds().y >= baseY) {
                 flag = true;
                 destroyAbove(material);
@@ -117,14 +117,14 @@ public class GameScreen extends State {
         pigs = new ArrayList<>();
 
 
-        pigs.add(new SmallPig(new Vector2(625, 50))); // Adjust positions as needed
+        pigs.add(new SmallPig(new Vector2(625, 50)));
         pigs.add(new MediumPig(new Vector2(625, 150)));
     }
 
     private void initializeMaterials() {
         materials = new ArrayList<>();
 
-        // Add instances of your existing Materials classes
+
         materials.add(new Wooden("wood_vertical.png", 20 , 100 , new Vector2(600, 50)));
         materials.add(new Wooden("wood_vertical.png", 20 , 100 , new Vector2( 685, 50)));
         materials.add(new Wooden ("wood_horizontal.png" , 100 , 20 , new Vector2(600, 149)));
@@ -133,9 +133,7 @@ public class GameScreen extends State {
         materials.add(new Iron ("iron_horizontal.png" , 100 , 20 , new Vector2(600, 267)));
     }
 
-    /**
-     * Handles user input for dragging and launching the bird.
-     */
+
     @Override
     public void input() {
         if (!birdLaunched && currentBirdIndex < birds.size()) {
@@ -214,7 +212,9 @@ public class GameScreen extends State {
                     handleCollision(bluesBird.getleftBird());
                     // Remove the left bird if it is out of bounds
                     if (isOutOfBounds(bluesBird.getleftBird())) {
+                        Birds a = bluesBird.getleftBird() ;
                         birds.remove(bluesBird.getleftBird());
+
                     }
                 }
 
@@ -225,7 +225,10 @@ public class GameScreen extends State {
                     handleCollision(bluesBird.getrightBird());
                     // Remove the right bird if it is out of bounds
                     if (isOutOfBounds(bluesBird.getrightBird()) ) {
+                         Birds a = bluesBird.getrightBird() ;
                         birds.remove(bluesBird.getrightBird());
+
+
                     }
                 }
             }
@@ -233,9 +236,28 @@ public class GameScreen extends State {
 
             // Check if bird is out of bounds or hits the ground
             if (isOutOfBounds(currentBird)) {
-                birdLaunched = false;
-                currentBirdIndex++;
-                if (currentBirdIndex < birds.size()) {
+                boolean flag = false ;
+                if (currentBird instanceof  TheBlues){
+                    TheBlues bluesBird = (TheBlues) currentBird;
+                    if( bluesBird.getleftBird() != null && bluesBird.getrightBird() != null && !birds.contains(bluesBird.getleftBird()) && !birds.contains(bluesBird.getrightBird()) )
+                    {
+                        birdLaunched = false;
+                        currentBirdIndex++;
+                        flag = true ;
+                    }
+                    else if (bluesBird.getrightBird() == null && bluesBird.getleftBird() == null )
+                    {
+                        birdLaunched = false;
+                        currentBirdIndex ++;
+                        flag = true ;
+                    }
+                }
+                else {
+                    birdLaunched = false;
+                    currentBirdIndex++;
+                    flag = true ;
+                }
+                if (currentBirdIndex < birds.size() && flag) {
                     birds.get(currentBirdIndex).setPosition(
                         slingshot.getX() + slingshot.getWidth() / 2 - 25,
                         slingshot.getY() + slingshot.getHeight()
@@ -288,7 +310,7 @@ public class GameScreen extends State {
             pig.draw(batch);
         }
 
-        // Draw birds (only those not yet launched)
+
         for (int i = currentBirdIndex; i < birds.size(); i++) {
             birds.get(i).draw(batch);
         }
@@ -296,9 +318,7 @@ public class GameScreen extends State {
         batch.end();
     }
 
-    /**
-     * Disposes of all resources to prevent memory leaks.
-     */
+
     @Override
     public void dispose() {
         batch.dispose();
@@ -346,13 +366,19 @@ public class GameScreen extends State {
                 if (material.isDestroyed()) {
                     System.out.println("Material destroyed!");
                     destroyAbove(material);
+                    for (int k = 0 ; k<pigs.size() ; k++) {
+                        if (pigs.get(k).getBounds().overlaps(material.getBounds())) {
+                            pigs.remove(k);
+                            k-- ;
+                        }
+                    }
                     materials.remove(i);
-                    i--; // Adjust index after removal
+                    i--;
                 }
 
-                // Make the bird fall back upon collision
+
                 bird.fallBack();
-                return; // Exit after handling collision
+                return;
             }
         }
     }

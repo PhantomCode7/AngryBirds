@@ -17,10 +17,10 @@ public class Matilda extends Birds {
             System.out.println("Matilda drops an egg!");
             eggDropped = true;
 
-            // Drop an egg directly below Matilda
-            Vector2 eggPosition = new Vector2(position.x, position.y - 20); // Position below Matilda
-            Birds egg = new Bomb(eggPosition, impactDamage * 2); // Egg acts as a Bomb bird
-            GameScreen.getBirds().add(egg); // Add the egg to the game (requires managing GameScreen's bird list)
+
+            Vector2 eggPosition = new Vector2(position.x, position.y - 20);
+            Birds egg = new Bomb(eggPosition, impactDamage * 2);
+            GameScreen.getBirds().add(egg);
         }
     }
 }
