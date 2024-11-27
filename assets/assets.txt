@@ -2,9 +2,8 @@ back.png
 background_music.mp3
 backk.png
 backToMenu.png
-big_red.png
-blue_bird.png
 bomb.png
+chuck.png
 EXIT.png
 gameBackground.png
 iron_horizontal.png
@@ -26,14 +25,14 @@ LoadGame.png
 login.png
 LosingScreen.png
 MainScreen.png
-matilda_egg.png
+matilda.png
 mute.png
 newGame.png
 nextLevel.png
 Pause.png
 pauseButton.png
 Piggy_medium.png
-red_bird.png
+red.png
 replayButton.png
 resume.png
 right.png
@@ -41,6 +40,8 @@ settings.png
 settings_background.png
 signup.png
 slingShot.png
+terence.png
+the_blues.png
 ui/font-list.fnt
 ui/font-subtitle.fnt
 ui/font-window.fnt
@@ -55,4 +56,3 @@ wallpaper.png
 wood_horizontal.png
 wood_vertical.png
 wrong.png
-yellow_bird.png

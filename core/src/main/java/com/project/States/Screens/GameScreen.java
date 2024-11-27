@@ -18,13 +18,13 @@ import java.util.List;
 
 public class GameScreen extends State {
     private SpriteBatch batch;
-
+    private static GameScreen instance;
     private Sprite background;
     private Sprite slingshot;
-    private List<Birds> birds;
+    private static List<Birds> birds;
     private int currentBirdIndex = 0;
-    private List<Pig> pigs;
-    private List<Materials> materials;
+    private static List<Pig> pigs;
+    private static List<Materials> materials;
 
     private Vector2 birdInitialPosition;
     private Vector2 birdVelocity;
@@ -37,7 +37,7 @@ public class GameScreen extends State {
 
     private Rectangle ground;
 
-    private void destroyAbove(Materials baseMaterial) {
+    public void destroyAbove(Materials baseMaterial) {
         float baseY = baseMaterial.getBounds().y; // Y-coordinate of the destroyed block
         boolean flag = false;
         for (int i = 0; i < materials.size(); i++) {
@@ -68,7 +68,7 @@ public class GameScreen extends State {
     public GameScreen(StateManager manager) {
         super(manager);
         batch = new SpriteBatch();
-
+        instance = this;
         initializeBackground();
         initializeGround();
         initializeSlingshot();
@@ -101,15 +101,15 @@ public class GameScreen extends State {
         birdInitialPosition = new Vector2(slingshot.getX() + slingshot.getWidth() / 2 - 25, slingshot.getY() + slingshot.getHeight());
 
         // Add instances of your existing Birds classes
-        birds.add(new RedBird(birdInitialPosition.cpy()));
+        birds.add(new Red(birdInitialPosition.cpy()));
         birdInitialPosition = new Vector2(100,50) ;
-        birds.add(new BlueBird(birdInitialPosition.cpy()));
+        birds.add(new TheBlues(birdInitialPosition.cpy(), 30));
         birdInitialPosition = new Vector2(80,50);
-        birds.add(new YellowBird(birdInitialPosition.cpy()));
+        birds.add(new Chuck(birdInitialPosition.cpy()));
         birdInitialPosition = new Vector2(60,50);
-        birds.add(new BlackBird(birdInitialPosition.cpy()));
+        birds.add(new Bomb(birdInitialPosition.cpy(), 50));
         birdInitialPosition = new Vector2(40,50) ;
-        birds.add(new BigRed(birdInitialPosition.cpy()));
+        birds.add(new Terence(birdInitialPosition.cpy()));
     }
 
 
@@ -186,88 +186,66 @@ public class GameScreen extends State {
         }
     }
 
-
     @Override
     public void update(float delta) {
         input();
-        boolean flag = false ;
 
-        if ( !flag && birdLaunched && currentBirdIndex < birds.size() ) {
+        if (birdLaunched && currentBirdIndex < birds.size()) {
             Birds currentBird = birds.get(currentBirdIndex);
+
+            if (birdLaunched && Gdx.input.justTouched() && currentBirdIndex < birds.size()) {
+                currentBird.activateAbility(); // Trigger the bird's special ability
+
+            }
 
             // Apply gravity
             currentBird.getVelocity().y += gravity * delta;
 
             // Update bird's position based on velocity
             currentBird.updatePosition(delta);
+            handleCollision(currentBird);
+            if (currentBird instanceof TheBlues) {
+                TheBlues bluesBird = (TheBlues) currentBird;
 
-            // Check collision with ground
-            if (currentBird.getPosition().y <= ground.height) {
+                // Update left bird
+                if (bluesBird.getleftBird() != null) {
+                    bluesBird.getleftBird().getVelocity().y += gravity * delta;
+                    bluesBird.getleftBird().updatePosition(delta);
+                    handleCollision(bluesBird.getleftBird());
+                    // Remove the left bird if it is out of bounds
+                    if (isOutOfBounds(bluesBird.getleftBird())) {
+                        birds.remove(bluesBird.getleftBird());
+                    }
+                }
+
+                // Update right bird
+                if (bluesBird.getrightBird() != null) {
+                    bluesBird.getrightBird().getVelocity().y += gravity * delta;
+                    bluesBird.getrightBird().updatePosition(delta);
+                    handleCollision(bluesBird.getrightBird());
+                    // Remove the right bird if it is out of bounds
+                    if (isOutOfBounds(bluesBird.getrightBird())) {
+                        birds.remove(bluesBird.getrightBird());
+                    }
+                }
+            }
+
+
+            // Check if bird is out of bounds or hits the ground
+            if (isOutOfBounds(currentBird)) {
+                birdLaunched = false;
                 currentBirdIndex++;
-                currentBird.setPosition(currentBird.getPosition().x, ground.height);
-                currentBird.setVelocity(new Vector2(0, 0));
-                birdLaunched = false;
-                //currentBirdIndex++;
                 if (currentBirdIndex < birds.size()) {
-                    birds.get(currentBirdIndex).setPosition(slingshot.getX() + slingshot.getWidth() / 2 - 25, slingshot.getY() + slingshot.getHeight());
-                }
-                flag = true; // Move to next bird
-            }
-
-
-            for (int i = 0; i < pigs.size(); i++) {
-                Pig pig = pigs.get(i);
-                if (currentBird.getBounds().overlaps(pig.getBounds())) {
-                    pigs.remove(i);
-                    i--;
-
-                    // Check if all pigs are destroyed
-                    if (pigs.isEmpty()) {
-                        manager.set(new WinningScreen(manager));
-                        return;
-                    }
-                }
-            }
-
-            for (int i = 0; i < materials.size(); i++) {
-                Materials material = materials.get(i);
-
-                if (currentBird.getBounds().overlaps(material.getBounds())) {
-                    // Apply damage to the material
-                    material.takeDamage(50);
-                    currentBird.setVelocity(new Vector2(0, 0)); // Stop the bird's velocity
-
-                    if (material.isDestroyed()) {
-                        destroyAbove(material);
-                        for(int k = 0 ; k<pigs.size() ; k++) {
-                            Pig pig = pigs.get(k);
-                            if (pig.getBounds().overlaps(material.getBounds())) {
-                                pigs.remove(k);
-                                k-- ;
-                            }
-                        }
-                        materials.remove(i);
-                        i--; // Adjust index after removal
-                    }
-                    break;
-                }
-            }
-
-
-            if ( (!flag ) && (currentBird.getPosition().x < 0 || currentBird.getPosition().x > 800 ||
-                currentBird.getPosition().y < 0 || currentBird.getPosition().y > 500)) {
-                birdLaunched = false;
-                currentBirdIndex ++ ;
-                if (currentBirdIndex < birds.size()) {
-                    //currentBirdIndex++;
-                    birds.get(currentBirdIndex).setPosition(slingshot.getX() + slingshot.getWidth() / 2 - 25, slingshot.getY() + slingshot.getHeight());
-                    flag = true ;
+                    birds.get(currentBirdIndex).setPosition(
+                        slingshot.getX() + slingshot.getWidth() / 2 - 25,
+                        slingshot.getY() + slingshot.getHeight()
+                    );
                 }
             }
         }
 
-
-        if (currentBirdIndex >= birds.size() ) {
+        // Check win/lose conditions
+        if (currentBirdIndex >= birds.size()) {
             if (pigs.isEmpty()) {
                 manager.set(new WinningScreen(manager));
             } else {
@@ -276,6 +254,13 @@ public class GameScreen extends State {
         } else if (pigs.isEmpty()) {
             manager.set(new WinningScreen(manager));
         }
+    }
+
+    private boolean isOutOfBounds(com.project.States.Birds.Birds birds) {
+        return birds.getPosition().y <= ground.height ||
+            birds.getPosition().x < 0 ||
+            birds.getPosition().x > 800 ||
+            birds.getPosition().y > 500 || birds.getPosition().y <= ground.height;
     }
 
 
@@ -326,5 +311,63 @@ public class GameScreen extends State {
         for (Materials material : materials) {
             material.dispose();
         }
+    }
+
+    private void handleCollision(Birds bird) {
+        // Check collisions with pigs
+        for (int i = 0; i < pigs.size(); i++) {
+            Pig pig = pigs.get(i);
+            if (bird.getBounds().overlaps(pig.getBounds())) {
+                pig.takeDamage(bird.getImpactDamage());
+
+                if (pig.isDestroyed()) {
+                    System.out.println("Pig destroyed!");
+                    pigs.remove(i);
+                    i--; // Adjust index after removal
+                } else {
+                    System.out.println("Pig hit but survived!");
+                }
+
+                // Bird dies after hitting a pig
+                bird.setVelocity(new Vector2(0, 0)); // Stop the bird
+                return; // Exit after handling collision
+            }
+        }
+
+        // Check collisions with materials
+        for (int i = 0; i < materials.size(); i++) {
+            Materials material = materials.get(i);
+            if (bird.getBounds().overlaps(material.getBounds())) {
+                material.takeDamage(bird.getImpactDamage());
+
+                if (material.isDestroyed()) {
+                    System.out.println("Material destroyed!");
+                    destroyAbove(material);
+                    materials.remove(i);
+                    i--; // Adjust index after removal
+                }
+
+                // Make the bird fall back upon collision
+                bird.fallBack();
+                return; // Exit after handling collision
+            }
+        }
+    }
+
+
+    public static List<com.project.States.Pigs.Pig> getPigs() {
+        return pigs;
+    }
+
+    public static List<com.project.States.Materials.Materials> getMaterials() {
+        return materials;
+    }
+
+    public static List<com.project.States.Birds.Birds> getBirds() {
+        return birds;
+    }
+
+    public static GameScreen getInstance() {
+        return instance;
     }
 }

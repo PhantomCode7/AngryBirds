@@ -10,14 +10,16 @@ public abstract class Pig {
     protected Sprite sprite;
     protected Vector2 position;
     protected Rectangle bounds;
+    protected int health; // Health or hitpoints of the pig
 
-    public Pig(String texturePath, float width, float height, Vector2 initialPosition) {
+    public Pig(String texturePath, float width, float height, Vector2 initialPosition, int health) {
         Texture texture = new Texture(texturePath);
         sprite = new Sprite(texture);
         sprite.setSize(width, height);
         position = new Vector2(initialPosition);
         sprite.setPosition(position.x, position.y);
         bounds = new Rectangle(position.x, position.y, width, height);
+        this.health = health;
     }
 
     public Vector2 getPosition() {
@@ -28,23 +30,26 @@ public abstract class Pig {
         return bounds;
     }
 
+    public void takeDamage(int damage) {
+        health -= damage;
+        System.out.println("Pig hit! Remaining health: " + health); // Debugging message
+        if (health < 0) health = 0; // Ensure health doesn’t go negative
+    }
+
+    public boolean isDestroyed() {
+        return health <= 0;
+    }
+
     public void setPosition(float x, float y) {
         position.set(x, y);
         sprite.setPosition(x, y);
         bounds.setPosition(x, y);
     }
 
-    /**
-     * Draw the pig on the screen.
-     * @param batch SpriteBatch used for drawing.
-     */
     public void draw(SpriteBatch batch) {
         sprite.draw(batch);
     }
 
-    /**
-     * Dispose of the pig's texture to free resources.
-     */
     public void dispose() {
         sprite.getTexture().dispose();
     }
