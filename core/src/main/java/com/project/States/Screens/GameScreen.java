@@ -13,6 +13,10 @@ import com.project.States.Materials.*;
 import com.project.States.State;
 import com.project.States.StateManager;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +40,8 @@ public class GameScreen extends State {
     private Vector2 dragEnd = new Vector2();
 
     private Rectangle ground;
+
+    private Sprite pauseButton;
 
     public void destroyAbove(Materials baseMaterial) {
         float baseY = baseMaterial.getBounds().y; // Y-coordinate of the destroyed block
@@ -69,12 +75,20 @@ public class GameScreen extends State {
         super(manager);
         batch = new SpriteBatch();
         instance = this;
+        initializePauseButton();
         initializeBackground();
         initializeGround();
         initializeSlingshot();
         initializeBirds();
         initializePigs();
         initializeMaterials();
+    }
+
+    private void initializePauseButton() {
+        Texture pauseTexture = new Texture("pauseButton.png");
+        pauseButton = new Sprite(pauseTexture);
+        pauseButton.setSize(50, 50); // Adjust size as needed
+        pauseButton.setPosition(750, 450); // Adjust position as needed (top-right corner)
     }
 
     private void initializeBackground() {
@@ -136,6 +150,20 @@ public class GameScreen extends State {
 
     @Override
     public void input() {
+        if (Gdx.input.justTouched()) {
+            float x = Gdx.input.getX();
+            float y = Gdx.input.getY();
+
+            Vector2 touch = new Vector2();
+            touch.set(x, y);
+            Main.viewport.unproject(touch);
+
+            // Check if the pause button is clicked
+            if (pauseButton.getBoundingRectangle().contains(touch.x, touch.y)) {
+                manager.set(new Pause(manager, this)); // Pass the current GameScreen instance
+                return; // Exit early to avoid processing further input
+            }
+        }
         if (!birdLaunched && currentBirdIndex < birds.size()) {
             Birds currentBird = birds.get(currentBirdIndex);
 
@@ -315,24 +343,31 @@ public class GameScreen extends State {
             birds.get(i).draw(batch);
         }
 
+        // Draw pause button
+        pauseButton.draw(batch);
+
         batch.end();
     }
 
 
     @Override
     public void dispose() {
-        batch.dispose();
-        background.getTexture().dispose();
-        slingshot.getTexture().dispose();
+        State currentState = manager.peek();
+        if (currentState != null && !currentState.equals(this)) {
+            batch.dispose();
+            background.getTexture().dispose();
+            slingshot.getTexture().dispose();
+            pauseButton.getTexture().dispose();
 
-        for (Birds bird : birds) {
-            bird.dispose();
-        }
-        for (Pig pig : pigs) {
-            pig.dispose();
-        }
-        for (Materials material : materials) {
-            material.dispose();
+            for (Birds bird : birds) {
+                bird.dispose();
+            }
+            for (Pig pig : pigs) {
+                pig.dispose();
+            }
+            for (Materials material : materials) {
+                material.dispose();
+            }
         }
     }
 

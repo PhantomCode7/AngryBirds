@@ -3,7 +3,10 @@ package com.project.States.Birds;
 import com.badlogic.gdx.math.Vector2;
 import com.project.States.Screens.GameScreen;
 
-public class TheBlues extends Birds {
+import java.io.Serializable;
+
+public class TheBlues extends Birds implements Serializable {
+    private static final long serialVersionUID = 1L;
     private boolean hasSplit;
     Birds leftBird;
     Birds rightBird;
@@ -42,5 +45,9 @@ public class TheBlues extends Birds {
     }
     public Birds getrightBird(){
         return rightBird;
+    }
+
+    public void reloadSprite() {
+        super.reloadSprite();
     }
 }

@@ -2,7 +2,10 @@ package com.project.States.Birds;
 
 import com.badlogic.gdx.math.Vector2;
 
-public class Chuck extends Birds {
+import java.io.Serializable;
+
+public class Chuck extends Birds implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     public Chuck(Vector2 initialPosition) {
         super("chuck.png", 50, 50, initialPosition, 75);
@@ -12,5 +15,9 @@ public class Chuck extends Birds {
     protected void triggerAbility() {
         // Double the bird's velocity for a speed boost
         velocity.scl(2.0f);
+    }
+
+    public void reloadSprite() {
+        super.reloadSprite();
     }
 }

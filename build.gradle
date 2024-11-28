@@ -49,6 +49,12 @@ configure(subprojects) {
       assetsFile.append(it + "\n")
     }
   }
+  tasks.register('runBirdsTest', JavaExec) {
+    group = 'application'
+    description = 'Run the BirdsSerializationTest main method.'
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'com.project.States.BirdsSerializationTest'
+  }
   processResources.dependsOn 'generateAssetList'
 
   compileJava {

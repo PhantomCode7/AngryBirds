@@ -6,15 +6,21 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public abstract class Birds {
-    protected Sprite sprite;
+import java.io.IOException;
+
+public abstract class Birds implements java.io.Serializable {
+    private static final long serialVersionUID = 1L;
+    protected transient Sprite sprite; // Cannot be serialized
     protected Vector2 position;
     protected Vector2 velocity;
     protected Rectangle bounds;
     protected int impactDamage;
     protected boolean abilityUsed;
+    protected String texturePath; // Store texture path for reloading after deserialization
+
 
     public Birds(String texturePath, float width, float height, Vector2 initialPosition, int impactDamage) {
+        this.texturePath = texturePath;
         Texture texture = new Texture(texturePath);
         sprite = new Sprite(texture);
         sprite.setSize(width, height);
@@ -23,6 +29,22 @@ public abstract class Birds {
         bounds = new Rectangle(position.x, position.y, width, height);
         velocity = new Vector2(0, 0);
         this.impactDamage = impactDamage;
+    }
+
+    public void reloadSprite() {
+        Texture texture = new Texture(texturePath); // Reload texture
+        sprite = new Sprite(texture);
+        sprite.setSize(bounds.width, bounds.height);
+        sprite.setPosition(position.x, position.y);
+    }
+
+    private void writeObject(java.io.ObjectOutputStream out) throws IOException {
+        out.defaultWriteObject(); // Serialize non-transient fields
+    }
+
+    private void readObject(java.io.ObjectInputStream in) throws IOException, ClassNotFoundException {
+        in.defaultReadObject(); // Deserialize non-transient fields
+        reloadSprite(); // Recreate transient fields
     }
 
     public int getImpactDamage() {

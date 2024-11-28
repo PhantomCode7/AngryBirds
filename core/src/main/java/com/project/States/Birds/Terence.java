@@ -2,7 +2,10 @@ package com.project.States.Birds;
 
 import com.badlogic.gdx.math.Vector2;
 
-public class Terence extends Birds {
+import java.io.Serializable;
+
+public class Terence extends Birds implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     public Terence(Vector2 initialPosition) {
         super("terence.png", 70, 70, initialPosition, 200);
@@ -12,5 +15,9 @@ public class Terence extends Birds {
     public void activateAbility() {
         // Terence does not have a special ability but has high impact
         System.out.println("Terence smashes through with high impact!");
+    }
+
+    public void reloadSprite() {
+        super.reloadSprite();
     }
 }

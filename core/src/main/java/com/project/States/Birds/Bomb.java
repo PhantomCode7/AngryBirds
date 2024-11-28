@@ -5,7 +5,10 @@ import com.project.States.Screens.GameScreen;
 import com.project.States.Materials.Materials;
 import com.project.States.Pigs.Pig;
 
-public class Bomb extends Birds {
+import java.io.Serializable;
+
+public class Bomb extends Birds implements Serializable {
+    private static final long serialVersionUID = 1L;
     private int explosionRadius;
 
     public Bomb(Vector2 initialPosition, int impactDamage) {
@@ -47,5 +50,9 @@ public class Bomb extends Birds {
     private boolean isWithinExplosionRange(Vector2 targetPosition) {
         float distance = position.dst(targetPosition); // Distance between bomb and target
         return distance <= explosionRadius; // Check if within radius
+    }
+
+    public void reloadSprite() {
+        super.reloadSprite();
     }
 }

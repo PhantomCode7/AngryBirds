@@ -2,7 +2,10 @@ package com.project.States.Pigs;
 
 import com.badlogic.gdx.math.Vector2;
 
-public class MediumPig extends Pig {
+import java.io.Serializable;
+
+public class MediumPig extends Pig implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     public MediumPig(Vector2 initialPosition) {
         super("Piggy_medium.png", 40, 40, initialPosition, 100);

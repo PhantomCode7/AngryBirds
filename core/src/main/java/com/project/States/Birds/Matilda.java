@@ -3,7 +3,10 @@ package com.project.States.Birds;
 import com.badlogic.gdx.math.Vector2;
 import com.project.States.Screens.GameScreen;
 
-public class Matilda extends Birds {
+import java.io.Serializable;
+
+public class Matilda extends Birds implements Serializable {
+    private static final long serialVersionUID = 1L;
     private boolean eggDropped;
 
     public Matilda(Vector2 initialPosition, int impactDamage) {
@@ -22,5 +25,9 @@ public class Matilda extends Birds {
             Birds egg = new Bomb(eggPosition, impactDamage * 2);
             GameScreen.getBirds().add(egg);
         }
+    }
+
+    public void reloadSprite() {
+        super.reloadSprite();
     }
 }

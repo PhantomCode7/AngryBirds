@@ -2,24 +2,40 @@ package com.project.States.Pigs;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import java.io.*;
 
-public abstract class Pig {
-    protected Sprite sprite;
+public abstract class Pig implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    protected transient Sprite sprite; // Non-serializable
+    protected String texturePath; // Store the texture path
     protected Vector2 position;
     protected Rectangle bounds;
-    protected int health; // Health or hitpoints of the pig
+    private int health; // Health or hitpoints of the pig
 
     public Pig(String texturePath, float width, float height, Vector2 initialPosition, int health) {
-        Texture texture = new Texture(texturePath);
-        sprite = new Sprite(texture);
-        sprite.setSize(width, height);
-        position = new Vector2(initialPosition);
-        sprite.setPosition(position.x, position.y);
-        bounds = new Rectangle(position.x, position.y, width, height);
-        this.health = health;
+        this.texturePath = texturePath;
+        this.position = new Vector2(initialPosition);
+        this.setHealth(health);
+        this.bounds = new Rectangle(position.x, position.y, width, height);
+
+        // Initialize sprite
+        reloadSprite();
+    }
+
+    private void reloadSprite() {
+        try {
+            Texture texture = new Texture(texturePath);
+            sprite = new Sprite(texture);
+            sprite.setSize(bounds.width, bounds.height);
+            sprite.setPosition(position.x, position.y);
+        } catch (Exception e) {
+            System.err.println("Failed to reload sprite for texture: " + texturePath);
+            e.printStackTrace();
+        }
     }
 
     public Vector2 getPosition() {
@@ -31,13 +47,13 @@ public abstract class Pig {
     }
 
     public void takeDamage(int damage) {
-        health -= damage;
-        System.out.println("Pig hit! Remaining health: " + health); // Debugging message
-        if (health < 0) health = 0; // Ensure health doesn’t go negative
+        setHealth(getHealth() - damage);
+        System.out.println("Pig hit! Remaining health: " + getHealth());
+        if (getHealth() < 0) setHealth(0); // Ensure health doesn’t go negative
     }
 
     public boolean isDestroyed() {
-        return health <= 0;
+        return getHealth() <= 0;
     }
 
     public void setPosition(float x, float y) {
@@ -52,5 +68,22 @@ public abstract class Pig {
 
     public void dispose() {
         sprite.getTexture().dispose();
+    }
+
+    private void writeObject(ObjectOutputStream out) throws IOException {
+        out.defaultWriteObject(); // Serialize non-transient fields
+    }
+
+    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
+        in.defaultReadObject(); // Deserialize non-transient fields
+        reloadSprite(); // Reinitialize the transient fields
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
     }
 }
