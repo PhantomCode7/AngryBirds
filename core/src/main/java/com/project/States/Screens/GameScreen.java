@@ -103,7 +103,7 @@ public class GameScreen extends State {
     }
 
     private void initializeSlingshot() {
-        slingshot = new Sprite(new Texture("slingshot.png"));
+        slingshot = new Sprite(new Texture("slingShot.png"));
         slingshot.setSize(50, 100);
         slingshot.setPosition(125 , 50);
     }

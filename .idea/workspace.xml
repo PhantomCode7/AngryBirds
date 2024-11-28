@@ -5,40 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bdde4f6-226d-498d-9fb9-ebe248c631de" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/BirdsSerializationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Materials/Glass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/temp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.1/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/assets.txt" beforeDir="false" afterPath="$PROJECT_DIR$/assets/assets.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/libs/core-$projectVersion.jar" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/libs/core-$projectVersion.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/tmp/jar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/jar/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Birds.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Birds.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Bomb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Chuck.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Chuck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Matilda.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Matilda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Red.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Red.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Terence.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Terence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/TheBlues.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/TheBlues.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Materials/Iron.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Materials/Iron.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Materials/Materials.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Materials/Materials.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Materials/Wooden.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Materials/Wooden.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Pigs/BigPig.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Pigs/BigPig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Pigs/MediumPig.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Pigs/MediumPig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Pigs/Pig.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Pigs/Pig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Pigs/SmallPig.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Pigs/SmallPig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/GameScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/Pause.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/Pause.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/StateManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/StateManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,6 +89,7 @@
     "Gradle.AngryBirds:core [:core:com.project.States.BirdsSerializationTest.main()].executor": "Run",
     "Gradle.AngryBirds:core [:core:com.project.States.temp.main()].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
@@ -188,8 +156,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
       </set>
     </attachedChunks>
   </component>
@@ -215,6 +183,7 @@
       <workItem from="1732672975688" duration="11222000" />
       <workItem from="1732774191049" duration="1163000" />
       <workItem from="1732775377550" duration="6654000" />
+      <workItem from="1732785546139" duration="42000" />
     </task>
     <servers />
   </component>
