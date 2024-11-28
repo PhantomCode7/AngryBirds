@@ -13,22 +13,22 @@ import com.project.States.Materials.*;
 import com.project.States.State;
 import com.project.States.StateManager;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameScreen extends State {
-    private SpriteBatch batch;
-    private static GameScreen instance;
-    private Sprite background;
-    private Sprite slingshot;
-    private static List<Birds> birds;
+public class GameScreen extends State implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    private transient SpriteBatch batch;
+    private transient Sprite background;
+    private transient Sprite slingshot;
+    private transient Sprite pauseButton;
+
+    private List<Birds> birds;
     private int currentBirdIndex = 0;
-    private static List<Pig> pigs;
-    private static List<Materials> materials;
+    private List<Pig> pigs;
+    private List<Materials> materials;
 
     private Vector2 birdInitialPosition;
     private Vector2 birdVelocity;
@@ -41,7 +41,7 @@ public class GameScreen extends State {
 
     private Rectangle ground;
 
-    private Sprite pauseButton;
+    private static GameScreen instance;
 
     public void destroyAbove(Materials baseMaterial) {
         float baseY = baseMaterial.getBounds().y; // Y-coordinate of the destroyed block
@@ -70,7 +70,6 @@ public class GameScreen extends State {
 
     }
 
-
     public GameScreen(StateManager manager) {
         super(manager);
         batch = new SpriteBatch();
@@ -82,6 +81,11 @@ public class GameScreen extends State {
         initializeBirds();
         initializePigs();
         initializeMaterials();
+    }
+
+    private GameScreen() {
+        // Empty constructor for deserialization
+        super(null);
     }
 
     private void initializePauseButton() {
@@ -103,7 +107,7 @@ public class GameScreen extends State {
     }
 
     private void initializeSlingshot() {
-        slingshot = new Sprite(new Texture("slingShot.png"));
+        slingshot = new Sprite(new Texture("slingshot.png"));
         slingshot.setSize(50, 100);
         slingshot.setPosition(125 , 50);
     }
@@ -117,7 +121,7 @@ public class GameScreen extends State {
         // Add instances of your existing Birds classes
         birds.add(new Red(birdInitialPosition.cpy()));
         birdInitialPosition = new Vector2(100,50) ;
-        birds.add(new TheBlues(birdInitialPosition.cpy(), 30));
+        birds.add(new TheBlues(birdInitialPosition.cpy(), 30, this));
         birdInitialPosition = new Vector2(80,50);
         birds.add(new Chuck(birdInitialPosition.cpy()));
         birdInitialPosition = new Vector2(60,50);
@@ -160,6 +164,7 @@ public class GameScreen extends State {
 
             // Check if the pause button is clicked
             if (pauseButton.getBoundingRectangle().contains(touch.x, touch.y)) {
+                saveGame(); // Save the game state
                 manager.set(new Pause(manager, this)); // Pass the current GameScreen instance
                 return; // Exit early to avoid processing further input
             }
@@ -349,6 +354,59 @@ public class GameScreen extends State {
         batch.end();
     }
 
+    // Serialization methods
+    private void writeObject(ObjectOutputStream out) throws IOException {
+        out.defaultWriteObject(); // Serialize non-transient fields
+    }
+
+    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
+        in.defaultReadObject(); // Deserialize non-transient fields
+        reloadTransientFields(); // Reload transient fields
+    }
+
+    private void reloadTransientFields() {
+        batch = new SpriteBatch();
+        initializePauseButton();
+        initializeBackground();
+        initializeGround();
+        initializeSlingshot();
+    }
+
+    public void saveGame() {
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("gameState.ser"))) {
+            out.writeObject(this);
+            System.out.println("Game state saved successfully!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setManager(StateManager manager) {
+        this.manager = manager;
+    }
+
+    public void reinitializeGameScreenDependencies() {
+        for (Birds bird : birds) {
+            if (bird instanceof TheBlues) {
+                ((TheBlues) bird).setGameScreen(this);
+            }
+        }
+    }
+
+    public static GameScreen loadGame(StateManager manager) {
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream("gameState.ser"))) {
+            GameScreen gameScreen = (GameScreen) in.readObject();
+            gameScreen.setManager(manager); // Set the manager after deserialization
+            gameScreen.reinitializeGameScreenDependencies(); // Reinitialize gameScreen in TheBlues instances
+            System.out.println("Game state loaded successfully!");
+            return gameScreen;
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+            System.out.println("No saved game found. Starting a new game.");
+            return new GameScreen(manager);
+        }
+    }
+
 
     @Override
     public void dispose() {
@@ -419,15 +477,15 @@ public class GameScreen extends State {
     }
 
 
-    public static List<com.project.States.Pigs.Pig> getPigs() {
+    public List<com.project.States.Pigs.Pig> getPigs() {
         return pigs;
     }
 
-    public static List<com.project.States.Materials.Materials> getMaterials() {
+    public List<com.project.States.Materials.Materials> getMaterials() {
         return materials;
     }
 
-    public static List<com.project.States.Birds.Birds> getBirds() {
+    public List<com.project.States.Birds.Birds> getBirds() {
         return birds;
     }
 

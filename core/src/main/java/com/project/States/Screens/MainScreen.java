@@ -8,6 +8,8 @@ import com.badlogic.gdx.math.Vector2;
 import com.project.States.Main;
 import com.project.States.State;
 import com.project.States.StateManager;
+import com.project.States.MusicManager;
+import com.project.States.Screens.GameScreen;
 
 public class MainScreen extends State
 {
@@ -57,7 +59,8 @@ public class MainScreen extends State
 
             if (loadGameButton.getBoundingRectangle().contains(touch.x,touch.y))
             {
-                manager.set(new LevelScreen(manager)) ;
+                GameScreen loadedGame = GameScreen.loadGame(manager); // Load the saved game state
+                manager.set(loadedGame); // Set the loaded game state
             }
             else if (exitGameButton.getBoundingRectangle().contains(touch.x , touch.y)) {
                 Gdx.app.exit();

@@ -16,15 +16,8 @@ public class Matilda extends Birds implements Serializable {
 
     @Override
     protected void triggerAbility() {
-        if (!eggDropped) {
-            System.out.println("Matilda drops an egg!");
-            eggDropped = true;
-
-
-            Vector2 eggPosition = new Vector2(position.x, position.y - 20);
-            Birds egg = new Bomb(eggPosition, impactDamage * 2);
-            GameScreen.getBirds().add(egg);
-        }
+        System.out.println("Matilda dropped an egg");
+        this.eggDropped = true;
     }
 
     public void reloadSprite() {
