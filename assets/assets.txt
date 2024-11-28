@@ -8,16 +8,15 @@ chuck.png
 EXIT.png
 gameBackground.png
 gameState.ser
-hs_err_pid11880.log
-hs_err_pid16536.log
-hs_err_pid22224.log
 iron_horizontal.png
 iron_vertical.png
 level1.png
 Level2.0.png
 level2.png
+Level2.ser
 Level3.0.png
 level3.png
+Level3.ser
 level4.png
 level5.png
 level6.png
@@ -26,6 +25,7 @@ level8.png
 levelBackground1.jpg
 levelBackground1.png
 levelCleared.png
+LevelNumber.txt
 Lexit.png
 libgdx.png
 LoadGame.png

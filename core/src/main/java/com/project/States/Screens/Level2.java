@@ -17,8 +17,8 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameScreen extends State implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class Level2 extends State implements Serializable {
+    private static final long serialVersionUID = 2L;
 
     private transient SpriteBatch batch;
     private transient Sprite background;
@@ -41,7 +41,7 @@ public class GameScreen extends State implements Serializable {
 
     private Rectangle ground;
 
-    private static GameScreen instance;
+    private static Level2 instance;
 
     public void destroyAbove(Materials baseMaterial) {
         float baseY = baseMaterial.getBounds().y; // Y-coordinate of the destroyed block
@@ -70,7 +70,7 @@ public class GameScreen extends State implements Serializable {
 
     }
 
-    public GameScreen(StateManager manager) {
+    public Level2(StateManager manager) {
         super(manager);
         batch = new SpriteBatch();
         instance = this;
@@ -83,8 +83,7 @@ public class GameScreen extends State implements Serializable {
         initializeMaterials();
     }
 
-    private GameScreen() {
-        // Empty constructor for deserialization
+    private Level2() {
         super(null);
     }
 
@@ -119,15 +118,15 @@ public class GameScreen extends State implements Serializable {
         birdInitialPosition = new Vector2(slingshot.getX() + slingshot.getWidth() / 2 - 25, slingshot.getY() + slingshot.getHeight());
 
         // Add instances of your existing Birds classes
-        birds.add(new Red(birdInitialPosition.cpy()));
-        birdInitialPosition = new Vector2(100,50) ;
-        birds.add(new TheBlues(birdInitialPosition.cpy(), 30, this));
-        birdInitialPosition = new Vector2(80,50);
         birds.add(new Chuck(birdInitialPosition.cpy()));
-        birdInitialPosition = new Vector2(60,50);
-        birds.add(new Bomb(birdInitialPosition.cpy(), 50));
-        birdInitialPosition = new Vector2(40,50) ;
+        birdInitialPosition = new Vector2(100,50) ;
+        birds.add(new Chuck(birdInitialPosition.cpy()));
+        birdInitialPosition = new Vector2(80,50);
         birds.add(new Terence(birdInitialPosition.cpy()));
+        birdInitialPosition = new Vector2(60,50);
+        birds.add(new Matilda(birdInitialPosition.cpy(), 50));
+        birdInitialPosition = new Vector2(40,50) ;
+        birds.add(new Red(birdInitialPosition.cpy()));
     }
 
 
@@ -135,20 +134,20 @@ public class GameScreen extends State implements Serializable {
         pigs = new ArrayList<>();
 
 
-        pigs.add(new SmallPig(new Vector2(625, 50)));
-        pigs.add(new MediumPig(new Vector2(625, 150)));
+        pigs.add(new SmallPig(new Vector2(635, 50)));
+        pigs.add(new MediumPig(new Vector2(535, 50)));
     }
 
     private void initializeMaterials() {
         materials = new ArrayList<>();
 
 
-        materials.add(new Wooden("wood_vertical.png", 20 , 100 , new Vector2(600, 50)));
-        materials.add(new Wooden("wood_vertical.png", 20 , 100 , new Vector2( 685, 50)));
-        materials.add(new Wooden ("wood_horizontal.png" , 100 , 20 , new Vector2(600, 149)));
-        materials.add(new Iron("iron_vertical.png", 20 , 100 , new Vector2(600, 168)));
-        materials.add(new Iron("iron_vertical.png", 20 , 100 , new Vector2(685, 168)));
-        materials.add(new Iron ("iron_horizontal.png" , 100 , 20 , new Vector2(600, 267)));
+        materials.add(new Glass("unknownVertical.png", 20 , 100 , new Vector2(500, 50)));
+        materials.add(new Glass("unknownVertical.png", 20 , 100 , new Vector2( 585, 50)));
+        materials.add(new Wooden ("wood_horizontal.png" , 100 , 20 , new Vector2(500, 149)));
+        materials.add(new Iron("iron_vertical.png", 20 , 100 , new Vector2(610, 50)));
+        materials.add(new Iron("iron_vertical.png", 20 , 100 , new Vector2(695, 50)));
+        materials.add(new Iron ("iron_horizontal.png" , 100 , 20 , new Vector2(610, 149)));
     }
 
 
@@ -162,13 +161,13 @@ public class GameScreen extends State implements Serializable {
             touch.set(x, y);
             Main.viewport.unproject(touch);
 
+            // Check if the pause button is clicked
             if (pauseButton.getBoundingRectangle().contains(touch.x, touch.y)) {
-                Main.a = 1 ;
-                saveGame();
+                Main.a = 2 ;
+                saveGame(); // Save the game state
                 saveLevelNumber();
-                manager.set(new Pause(manager, this));
-
-                return;
+                manager.set(new Pause(manager, this)); // Pass the current GameScreen instance
+                return; // Exit early to avoid processing further input
             }
         }
         if (!birdLaunched && currentBirdIndex < birds.size()) {
@@ -260,7 +259,7 @@ public class GameScreen extends State implements Serializable {
                     handleCollision(bluesBird.getrightBird());
                     // Remove the right bird if it is out of bounds
                     if (isOutOfBounds(bluesBird.getrightBird()) ) {
-                         Birds a = bluesBird.getrightBird() ;
+                        Birds a = bluesBird.getrightBird() ;
                         birds.remove(bluesBird.getrightBird());
 
 
@@ -304,15 +303,15 @@ public class GameScreen extends State implements Serializable {
         // Check win/lose conditions
         if (currentBirdIndex >= birds.size()) {
             if (pigs.isEmpty()) {
-                Main.levelCleared = 2 ;
+                Main.levelCleared  = 3;
                 manager.set(new WinningScreen(manager));
 
             } else {
-                Main.levelCleared = 1;
+                Main.levelCleared = 2 ;
                 manager.set(new LosingScreen(manager));
             }
         } else if (pigs.isEmpty()) {
-            Main.levelCleared = 2 ;
+            Main.levelCleared = 3 ;
             manager.set(new WinningScreen(manager));
         }
     }
@@ -330,17 +329,18 @@ public class GameScreen extends State implements Serializable {
         batch.setProjectionMatrix(Main.viewport.getCamera().combined);
         batch.begin();
 
+        // Draw background
         background.draw(batch);
 
-
+        // Draw slingshot
         slingshot.draw(batch);
 
-
+        // Draw materials
         for (Materials material : materials) {
             material.draw(batch);
         }
 
-
+        // Draw pigs
         for (Pig pig : pigs) {
             pig.draw(batch);
         }
@@ -350,21 +350,23 @@ public class GameScreen extends State implements Serializable {
             birds.get(i).draw(batch);
         }
 
+        // Draw pause button
         pauseButton.draw(batch);
 
         batch.end();
     }
 
-    public void writeObject(ObjectOutputStream out) throws IOException {
-        out.defaultWriteObject();
+    // Serialization methods
+    private void writeObject(ObjectOutputStream out) throws IOException {
+        out.defaultWriteObject(); // Serialize non-transient fields
     }
 
-    public void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
-        in.defaultReadObject();
-        reloadTransientFields();
+    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
+        in.defaultReadObject(); // Deserialize non-transient fields
+        reloadTransientFields(); // Reload transient fields
     }
 
-    public void reloadTransientFields() {
+    private void reloadTransientFields() {
         batch = new SpriteBatch();
         initializePauseButton();
         initializeBackground();
@@ -373,15 +375,26 @@ public class GameScreen extends State implements Serializable {
     }
 
     public void saveGame() {
-        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("gameState.ser"))) {
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("Level2.ser"))) {
             out.writeObject(this);
             System.out.println("Game state saved successfully!");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+    public void saveLevelNumber () {
+      String filename = "LevelNumber.txt";
+      try{
+            FileOutputStream file = new FileOutputStream(filename);
+            ObjectOutputStream out = new ObjectOutputStream(file);
+            out.writeObject(Main.a);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-    public void setManager(StateManager manager) {
+    }
+//
+   public void setManager(StateManager manager) {
         this.manager = manager;
     }
 
@@ -393,9 +406,9 @@ public class GameScreen extends State implements Serializable {
         }
     }
 
-    public static GameScreen loadGame(StateManager manager) {
-        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream("gameState.ser"))) {
-            GameScreen gameScreen = (GameScreen) in.readObject();
+    public static Level2 loadGame(StateManager manager) {
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream("Level2.ser"))) {
+            Level2 gameScreen = (Level2) in.readObject();
             gameScreen.setManager(manager); // Set the manager after deserialization
             gameScreen.reinitializeGameScreenDependencies(); // Reinitialize gameScreen in TheBlues instances
             System.out.println("Game state loaded successfully!");
@@ -403,7 +416,7 @@ public class GameScreen extends State implements Serializable {
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
             System.out.println("No saved game found. Starting a new game.");
-            return new GameScreen(manager);
+            return new Level2(manager);
         }
     }
 
@@ -439,17 +452,18 @@ public class GameScreen extends State implements Serializable {
                 if (pig.isDestroyed()) {
                     System.out.println("Pig destroyed!");
                     pigs.remove(i);
-                    i--;
+                    i--; // Adjust index after removal
                 } else {
                     System.out.println("Pig hit but survived!");
                 }
 
-                bird.setVelocity(new Vector2(0, 0));
-                return;
+                // Bird dies after hitting a pig
+                bird.setVelocity(new Vector2(0, 0)); // Stop the bird
+                return; // Exit after handling collision
             }
         }
 
-
+        // Check collisions with materials
         for (int i = 0; i < materials.size(); i++) {
             Materials material = materials.get(i);
             if (bird.getBounds().overlaps(material.getBounds())) {
@@ -475,18 +489,6 @@ public class GameScreen extends State implements Serializable {
         }
     }
 
-    public void saveLevelNumber () {
-        String filename = "LevelNumber.txt";
-        try{
-            FileOutputStream file = new FileOutputStream(filename);
-            ObjectOutputStream out = new ObjectOutputStream(file);
-            out.writeObject(Main.a);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
 
     public List<com.project.States.Pigs.Pig> getPigs() {
         return pigs;
@@ -500,7 +502,7 @@ public class GameScreen extends State implements Serializable {
         return birds;
     }
 
-    public static GameScreen getInstance() {
+    public static Level2 getInstance() {
         return instance;
     }
 }

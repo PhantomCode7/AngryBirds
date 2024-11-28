@@ -8,7 +8,7 @@ public class BigPig extends Pig implements Serializable {
     private static final long serialVersionUID = 1L;
 
     public BigPig(Vector2 initialPosition) {
-        super("Piggy_medium.png", 40, 40, initialPosition, 400);
+        super("Piggy_medium.png", 50, 50, initialPosition, 400);
     }
 
 

@@ -19,11 +19,65 @@ public class Pause extends State {
     Sprite backButton ;
 
     private final GameScreen gameScreen; // Store the current GameScreen instance
+    private final Level2 level2  ;
+    private final Level3 level3  ;
 
 
     public Pause(StateManager manager, GameScreen gameScreen) {
         super(manager);
         this.gameScreen = gameScreen; // Save the reference
+        this.level2 = null ;
+        this.level3 = null ;
+
+        pause = new Texture("Pause.png");
+        resume = new Texture("resume.png");
+        back = new Texture("backToMenu.png");
+
+        pauseButton = new Sprite(pause);
+        resumeButton = new Sprite(resume);
+        backButton = new Sprite(back);
+
+        pauseButton.setSize(800, 500);
+        pauseButton.setPosition(0, 0);
+        resumeButton.setPosition(350, 275);
+        resumeButton.setSize(100, 50);
+        backButton.setPosition(350, 175);
+        backButton.setSize(100, 50);
+
+
+        MusicManager.getInstance().pauseMusic();
+    }
+
+    public Pause(StateManager manager, Level2 gameScreen) {
+        super(manager);
+        this.gameScreen = null;
+        this.level2 = gameScreen;
+
+        this.level3 = null ;
+
+        pause = new Texture("Pause.png");
+        resume = new Texture("resume.png");
+        back = new Texture("backToMenu.png");
+
+        pauseButton = new Sprite(pause);
+        resumeButton = new Sprite(resume);
+        backButton = new Sprite(back);
+
+        pauseButton.setSize(800, 500);
+        pauseButton.setPosition(0, 0);
+        resumeButton.setPosition(350, 275);
+        resumeButton.setSize(100, 50);
+        backButton.setPosition(350, 175);
+        backButton.setSize(100, 50);
+
+        MusicManager.getInstance().pauseMusic();
+    }
+
+    public Pause(StateManager manager, Level3 gameScreen) {
+        super(manager);
+        this.gameScreen = null;
+        this.level3 = gameScreen;
+        this.level2 = null;
 
         pause = new Texture("Pause.png");
         resume = new Texture("resume.png");
@@ -56,7 +110,18 @@ public class Pause extends State {
             if (backButton.getBoundingRectangle().contains(touch.x, touch.y)) {
                 manager.set(new MainScreen(manager)); // Go back to the main menu
             } else if (resumeButton.getBoundingRectangle().contains(touch.x, touch.y)) {
-                manager.set(gameScreen); // Return to the saved GameScreen instance
+                if (Main.a==1) {
+                    manager.set(gameScreen);
+                }
+                else if (Main.a==2) {
+                    manager.set(level2);
+                }
+
+                else if (Main.a ==3 )
+                {
+                    manager.set(level3);
+                }
+
             }
         }
     }

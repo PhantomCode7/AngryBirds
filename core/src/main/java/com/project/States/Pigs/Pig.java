@@ -14,13 +14,18 @@ public abstract class Pig implements Serializable {
     protected String texturePath; // Store the texture path
     protected Vector2 position;
     protected Rectangle bounds;
-    private int health; // Health or hitpoints of the pig
+    private int health;
+    private float width;
+    private float height; // Health or hitpoints of the pig
 
     public Pig(String texturePath, float width, float height, Vector2 initialPosition, int health) {
         this.texturePath = texturePath;
         this.position = new Vector2(initialPosition);
         this.setHealth(health);
         this.bounds = new Rectangle(position.x, position.y, width, height);
+        this.width = width;
+        this.height = height;
+
 
         // Initialize sprite
         reloadSprite();
@@ -30,7 +35,7 @@ public abstract class Pig implements Serializable {
         try {
             Texture texture = new Texture(texturePath);
             sprite = new Sprite(texture);
-            sprite.setSize(bounds.width, bounds.height);
+            sprite.setSize(width, height);
             sprite.setPosition(position.x, position.y);
         } catch (Exception e) {
             System.err.println("Failed to reload sprite for texture: " + texturePath);

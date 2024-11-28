@@ -51,10 +51,13 @@ public class LosingScreen extends State {
             if (backButton.getBoundingRectangle().contains(touch.x, touch.y)) {
 
                 manager.set(new MainScreen(manager));
+
             }
 
             else if (replayButton.getBoundingRectangle().contains(touch.x, touch.y)) {
-                manager.set(new GameScreen(manager));
+                if (Main.levelCleared==1 ) manager.set(new GameScreen(manager));
+                else if (Main.levelCleared == 2 ) manager.set(new Level2(manager));
+                else if (Main.levelCleared == 3) manager.set(new Level3(manager));
             }
 
         }

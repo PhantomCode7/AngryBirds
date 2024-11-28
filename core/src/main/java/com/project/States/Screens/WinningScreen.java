@@ -42,8 +42,25 @@ public class WinningScreen extends State {
             Vector2 touch = new Vector2();
             touch.set(x, y);
             Main.viewport.unproject(touch);
-            if (nextLevelButton.getBoundingRectangle().contains(touch.x, touch.y) || replayButton.getBoundingRectangle().contains(touch.x, touch.y)) {
-                manager.set(new GameScreen(manager));
+            if (nextLevelButton.getBoundingRectangle().contains(touch.x, touch.y))  {
+
+                if (Main.levelCleared==1 )manager.set(new GameScreen(manager));
+                else if ( Main.levelCleared ==2 ) manager.set(new Level2(manager));
+                else if (Main.levelCleared ==3) manager.set(new Level3(manager));
+                else if (Main.levelCleared == 4 ) manager.set(new MainScreen(manager));
+            }
+
+            if (replayButton.getBoundingRectangle().contains(touch.x, touch.y))
+            {
+                if (Main.levelCleared==2){
+                    manager.set(new GameScreen(manager));
+                }
+                else if (Main.levelCleared ==3){
+                    manager.set(new Level2(manager));
+                }
+                else if (Main.levelCleared ==4){
+                    manager.set(new Level3(manager));
+                }
             }
         }
 

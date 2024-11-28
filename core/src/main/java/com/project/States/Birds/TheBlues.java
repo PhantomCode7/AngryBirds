@@ -2,6 +2,8 @@ package com.project.States.Birds;
 
 import com.badlogic.gdx.math.Vector2;
 import com.project.States.Screens.GameScreen;
+import com.project.States.Screens.Level2;
+import com.project.States.Screens.Level3;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -13,11 +15,25 @@ public class TheBlues extends Birds implements Serializable {
     private Birds leftBird;
     private Birds rightBird;
     private transient GameScreen gameScreen;
+    private transient Level2 level2;
+    private transient Level3 level3;
 
     public TheBlues(Vector2 initialPosition, int impactDamage, GameScreen gameScreen) {
         super("the_blues.png", 50, 50, initialPosition, impactDamage);
         this.hasSplit = false;
         this.gameScreen = gameScreen;
+    }
+
+    public TheBlues(Vector2 initialPosition, int impactDamage, Level2 gameScreen) {
+        super("the_blues.png", 50, 50, initialPosition, impactDamage);
+        this.hasSplit = false;
+        this.level2 = gameScreen;
+    }
+
+    public TheBlues(Vector2 initialPosition, int impactDamage, Level3 gameScreen) {
+        super("the_blues.png", 50, 50, initialPosition, impactDamage);
+        this.hasSplit = false;
+        this.level3 = gameScreen;
     }
 
     @Override
@@ -61,6 +77,26 @@ public class TheBlues extends Birds implements Serializable {
 
     public void setGameScreen(GameScreen gameScreen) {
         this.gameScreen = gameScreen;
+        if (leftBird instanceof TheBlues) {
+            ((TheBlues) leftBird).setGameScreen(gameScreen);
+        }
+        if (rightBird instanceof TheBlues) {
+            ((TheBlues) rightBird).setGameScreen(gameScreen);
+        }
+    }
+
+    public void setGameScreen(Level2 gameScreen) {
+        this.level2 = gameScreen;
+        if (leftBird instanceof TheBlues) {
+            ((TheBlues) leftBird).setGameScreen(gameScreen);
+        }
+        if (rightBird instanceof TheBlues) {
+            ((TheBlues) rightBird).setGameScreen(gameScreen);
+        }
+    }
+
+    public void setGameScreen(Level3 gameScreen) {
+        this.level3 = gameScreen;
         if (leftBird instanceof TheBlues) {
             ((TheBlues) leftBird).setGameScreen(gameScreen);
         }

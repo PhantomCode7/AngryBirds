@@ -13,6 +13,7 @@ import com.project.States.Screens.GameScreen;
 
 public class MainScreen extends State
 {
+
     Texture mainScreen ;
     Sprite main ;
     Texture newGame ;
@@ -59,8 +60,20 @@ public class MainScreen extends State
 
             if (loadGameButton.getBoundingRectangle().contains(touch.x,touch.y))
             {
-                GameScreen loadedGame = GameScreen.loadGame(manager); // Load the saved game state
-                manager.set(loadedGame); // Set the loaded game state
+                if (Main.a ==1) {
+                    GameScreen loadedGame = GameScreen.loadGame(manager);
+                    manager.set(loadedGame);
+                }
+                else if (Main.a ==2){
+                    Level2 loadedGame = Level2.loadGame(manager);
+                    manager.set(loadedGame);
+                }
+
+                else if (Main.a == 3 )
+                {
+                    Level3 loadedGame = Level3.loadGame(manager);
+                    manager.set(loadedGame);
+                }
             }
             else if (exitGameButton.getBoundingRectangle().contains(touch.x , touch.y)) {
                 Gdx.app.exit();

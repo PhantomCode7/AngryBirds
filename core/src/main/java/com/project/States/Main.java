@@ -9,8 +9,11 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.project.States.Screens.LoginScreen;
 
+import java.io.*;
+
 public class Main extends ApplicationAdapter {
     private SpriteBatch batch;
+    public static int levelCleared = 1 ;
     private Texture image;
     public static FitViewport viewport ;
     public static int a = 1 ;
@@ -31,6 +34,23 @@ public class Main extends ApplicationAdapter {
         sprite.setSize(800,500) ;
         sprite.setPosition(0,0);
         manager = new StateManager() ;
+        File  file = new File("LevelNumber.txt");
+        if (file.exists())
+        {
+            String filename = file.getName() ;
+            try {
+                 FileInputStream is = new FileInputStream(filename);
+                ObjectInputStream fis = new ObjectInputStream(is);
+                a = ( int ) fis.readObject() ;
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+        }
         manager.push(new LoginScreen(manager)) ;
         MusicManager.getInstance().playMusic();
     }
