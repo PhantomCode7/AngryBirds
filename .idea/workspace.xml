@@ -9,7 +9,6 @@
       <change beforePath="$PROJECT_DIR$/.gradle/8.10.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -18,11 +17,6 @@
       <change beforePath="$PROJECT_DIR$/assets/LevelNumber.txt" beforeDir="false" afterPath="$PROJECT_DIR$/assets/LevelNumber.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/assets.txt" beforeDir="false" afterPath="$PROJECT_DIR$/assets/assets.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/gameState.ser" beforeDir="false" afterPath="$PROJECT_DIR$/assets/gameState.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/settings.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/settings.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/libs/core-$projectVersion.jar" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/libs/core-$projectVersion.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/LevelScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/LevelScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/LoginScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/LoginScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/MainScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/MainScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,12 +75,12 @@
     &quot;assignee&quot;: &quot;Arne-Saknussemm-91&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/PhantomCode7/AngryBirds.git",
-    "accountId": "93bb676b-019a-4b73-817d-0bb0ef450cd5"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/PhantomCode7/AngryBirds.git&quot;,
+    &quot;accountId&quot;: &quot;f000aa78-1eca-4dce-9c7a-e248b357fa60&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/core/src/main/java/com/project/States/Pigs/Pig.java" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -212,6 +206,9 @@
       <workItem from="1732853654774" duration="2126000" />
       <workItem from="1732886084330" duration="869000" />
       <workItem from="1732887064753" duration="864000" />
+      <workItem from="1732895066314" duration="1200000" />
+      <workItem from="1732896681039" duration="307000" />
+      <workItem from="1732897056579" duration="1427000" />
     </task>
     <servers />
   </component>

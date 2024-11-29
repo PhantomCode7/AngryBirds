@@ -9,6 +9,8 @@ chuck.png
 EXIT.png
 gameBackground.png
 gameState.ser
+hs_err_pid10096.log
+hs_err_pid11788.log
 iron_horizontal.png
 iron_vertical.png
 level1.png
