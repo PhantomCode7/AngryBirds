@@ -202,7 +202,7 @@ public class GameScreen extends State implements Serializable {
                     // Move the bird to follow the drag
                     currentBird.setPosition(dragEnd.x - currentBird.getWidth() / 2, dragEnd.y - currentBird.getHeight() / 2);
                     //currentBirdIndex++;
-                    birds.get(currentBirdIndex).setPosition(  slingshot.getX() + slingshot.getWidth() / 2 - 25, slingshot.getY() + slingshot.getHeight());
+                    //birds.get(currentBirdIndex).setPosition(  slingshot.getX() + slingshot.getWidth() / 2 - 25, slingshot.getY() + slingshot.getHeight());
                 }
             } else {
                 if (isDragging) {
@@ -320,8 +320,7 @@ public class GameScreen extends State implements Serializable {
     private boolean isOutOfBounds(com.project.States.Birds.Birds birds) {
         return birds.getPosition().y <= ground.height ||
             birds.getPosition().x < 0 ||
-            birds.getPosition().x > 800 ||
-            birds.getPosition().y > 500 || birds.getPosition().y <= ground.height;
+            birds.getPosition().x > 800 || birds.getPosition().y <= ground.height;
     }
 
 

@@ -323,8 +323,7 @@ public class Level3 extends State implements Serializable {
     private boolean isOutOfBounds(com.project.States.Birds.Birds birds) {
         return birds.getPosition().y <= ground.height ||
             birds.getPosition().x < 0 ||
-            birds.getPosition().x > 800 ||
-            birds.getPosition().y > 500 || birds.getPosition().y <= ground.height;
+            birds.getPosition().x > 800 || birds.getPosition().y <= ground.height;
     }
 
 
