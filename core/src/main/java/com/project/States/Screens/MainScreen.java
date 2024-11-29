@@ -24,6 +24,9 @@ public class MainScreen extends State
     Sprite exitGameButton ;
     Texture settingsTexture;
     Sprite settingsButton;
+    Texture selectLevelTexture ;
+    Sprite selectLevelButton;
+
 
     public MainScreen(StateManager manager) {
         super(manager);
@@ -35,6 +38,8 @@ public class MainScreen extends State
         newGameButton = new Sprite (newGame) ;
         loadGameButton = new Sprite (loadGame) ;
         exitGameButton = new Sprite(exit) ;
+        selectLevelTexture = new Texture("SelectLevel.png") ;
+        selectLevelButton = new Sprite(selectLevelTexture) ;
         main.setSize(800,500) ;
         main.setPosition(0,0);
         newGameButton.setSize(100 , 50) ;
@@ -47,6 +52,8 @@ public class MainScreen extends State
         settingsButton = new Sprite(settingsTexture);
         settingsButton.setPosition(350, 25);
         settingsButton.setSize(100, 50);
+        selectLevelButton.setSize(100,50);
+        selectLevelButton.setPosition( 500, 225);
     }
 
     @Override
@@ -86,6 +93,9 @@ public class MainScreen extends State
             if (settingsButton.getBoundingRectangle().contains(touch.x, touch.y)) {
                 manager.push(new SettingsScreen(manager));
             }
+            if (selectLevelButton.getBoundingRectangle().contains(touch.x, touch.y)) {
+                manager.push(new LevelScreen(manager));
+            }
         }
 
     }
@@ -105,6 +115,7 @@ public class MainScreen extends State
         loadGameButton.draw(batch) ;
         exitGameButton.draw (batch) ;
         settingsButton.draw(batch);
+        selectLevelButton.draw(batch);
         batch.end() ;
     }
 
@@ -114,6 +125,7 @@ public class MainScreen extends State
         newGame.dispose() ;
         loadGame.dispose() ;
         settingsTexture.dispose();
+        selectLevelTexture.dispose() ;
         exit.dispose() ;
     }
 

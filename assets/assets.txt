@@ -1,3 +1,4 @@
+angryPlay.png
 back.png
 background_music.mp3
 backk.png
@@ -45,6 +46,7 @@ red.png
 replayButton.png
 resume.png
 right.png
+SelectLevel.png
 settings.png
 settings_background.png
 signup.png

@@ -12,27 +12,24 @@ import com.project.States.StateManager;
 public class LoginScreen extends State {
 
     private Texture img ;
-    private Texture login ;
-    private Texture signup  ;
+    private Texture play ;
     Sprite image ;
-    Sprite loginButton ;
-    Sprite signUpButton ;
+    Sprite playButton ;
     public LoginScreen(StateManager manager) {
         super(manager);
         img = new Texture("wallpaper.png")  ;
-        login = new Texture ("login.png") ;
-        signup = new Texture("signup.png") ;
+        play = new Texture ("angryPlay.png") ;
         image = new Sprite(img) ;
-        loginButton = new Sprite(login) ;
-        signUpButton = new Sprite (signup) ;
+        playButton = new Sprite(play) ;
+
 
         image.setSize(800 , 500) ;
-        loginButton.setSize(100 ,75);
-        signUpButton.setSize(100,50) ;
+        playButton.setSize(200 ,100);
+
 
         image.setPosition(0,0);
-        signUpButton.setPosition(350 ,  150) ;
-        loginButton.setPosition(350 , 300 );
+
+        playButton.setPosition(300 , 250 );
 
     }
 
@@ -47,7 +44,7 @@ public class LoginScreen extends State {
             Main.viewport.unproject(touch);
 
 
-           if (loginButton.getBoundingRectangle().contains(touch.x, touch.y) || signUpButton.getBoundingRectangle().contains(touch.x,touch.y))
+           if (playButton.getBoundingRectangle().contains(touch.x, touch.y) )
             {
                manager.set(new MainScreen(manager)) ;
             }
@@ -64,8 +61,7 @@ public class LoginScreen extends State {
     public void render(SpriteBatch batch) {
         batch.begin()  ;
         image.draw(batch) ;
-        loginButton.draw(batch) ;
-        signUpButton.draw(batch) ;
+        playButton.draw(batch) ;
         batch.end();
 
     }
@@ -73,7 +69,6 @@ public class LoginScreen extends State {
     @Override
     public void dispose() {
         img.dispose();
-        login.dispose() ;
-        signup.dispose() ;
+        play.dispose() ;
     }
 }

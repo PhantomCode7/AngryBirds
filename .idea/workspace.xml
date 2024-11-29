@@ -13,28 +13,16 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Level2.ser" beforeDir="false" afterPath="$PROJECT_DIR$/assets/Level2.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Level3.ser" beforeDir="false" afterPath="$PROJECT_DIR$/assets/Level3.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/LevelNumber.txt" beforeDir="false" afterPath="$PROJECT_DIR$/assets/LevelNumber.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/assets.txt" beforeDir="false" afterPath="$PROJECT_DIR$/assets/assets.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/gameState.ser" beforeDir="false" afterPath="$PROJECT_DIR$/assets/gameState.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/settings.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/settings.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/libs/core-$projectVersion.jar" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/libs/core-$projectVersion.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Birds.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Birds.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Bomb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Chuck.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Chuck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Terence.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Terence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/TheBlues.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/TheBlues.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Materials/Glass.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Materials/Glass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Materials/Iron.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Materials/Iron.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Materials/Materials.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Materials/Materials.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Materials/Wooden.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Materials/Wooden.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/MusicManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/MusicManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Pigs/Pig.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Pigs/Pig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/GameScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/State.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/StateManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/StateManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Tests/GameScreenTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/error.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/temp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lwjgl3/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/lwjgl3/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/LevelScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/LevelScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/LoginScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/LoginScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/MainScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/MainScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,12 +81,12 @@
     &quot;assignee&quot;: &quot;Arne-Saknussemm-91&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/PhantomCode7/AngryBirds.git&quot;,
-    &quot;accountId&quot;: &quot;f000aa78-1eca-4dce-9c7a-e248b357fa60&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/PhantomCode7/AngryBirds.git",
+    "accountId": "93bb676b-019a-4b73-817d-0bb0ef450cd5"
   }
-}</component>
+}]]></component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/core/src/main/java/com/project/States/Pigs/Pig.java" root0="FORCE_HIGHLIGHTING" />
   </component>

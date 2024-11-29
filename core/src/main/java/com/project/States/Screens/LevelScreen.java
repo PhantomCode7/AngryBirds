@@ -27,23 +27,12 @@ public class LevelScreen extends State {
 
     public LevelScreen(StateManager manager) {
         super(manager);
-        level = new Texture("levelBackground1.png");
-        if (Main.a == 1 ) {
-            level1 = new Texture("level1.png");
-            level2 = new Texture("level2.0.png");
-            level3 = new Texture("level3.0.png");
-        }
-        if (Main.a == 2 ) {
-            level1 = new Texture("level1.png");
-            level2 = new Texture("level2.png");
-            level3 = new Texture("level3.0.png");
-        }
 
-        if (Main.a == 3 ) {
-            level1 = new Texture("level1.png");
-            level2 = new Texture("level2.png");
-            level3 = new Texture("level3.png");
-        }
+        level = new Texture("levelBackground1.png");
+        level1 = new Texture("level1.png");
+        level2 = new Texture("level2.png");
+        level3 = new Texture("level3.png");
+
         back = new Texture("back.png");
 
         levelButton = new Sprite (level) ;
@@ -86,15 +75,13 @@ public class LevelScreen extends State {
                 manager.set(new MainScreen (manager)) ;
             }
             else if (level2Button.getBoundingRectangle().contains(touch.x , touch.y)) {
-                if (Main.a >= 2) {
-                    manager.set(new GameScreen(manager)) ;
-                }
+
+                    manager.set(new Level2(manager)) ;
             }
 
             else if (level3Button.getBoundingRectangle().contains(touch.x , touch.y)) {
-                if (Main.a==3) {
-                    manager.set(new GameScreen(manager));
-                }
+
+                    manager.set(new Level3(manager));
             }
             else if (level1Button.getBoundingRectangle().contains(touch.x , touch.y)) {
                 manager.set(new GameScreen(manager)) ;
