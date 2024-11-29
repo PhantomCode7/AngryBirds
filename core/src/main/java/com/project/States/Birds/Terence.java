@@ -13,7 +13,6 @@ public class Terence extends Birds implements Serializable {
 
     @Override
     public void activateAbility() {
-        // Terence does not have a special ability but has high impact
         System.out.println("Terence smashes through with high impact!");
     }
 

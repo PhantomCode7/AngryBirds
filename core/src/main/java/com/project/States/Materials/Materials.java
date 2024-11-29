@@ -11,8 +11,8 @@ import java.io.*;
 public abstract class Materials implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    protected transient Sprite sprite; // Non-serializable
-    protected String texturePath; // To reload sprite after deserialization
+    protected transient Sprite sprite;
+    protected String texturePath;
     protected Rectangle bounds;
     protected int health;
 
@@ -21,7 +21,6 @@ public abstract class Materials implements Serializable {
         this.bounds = new Rectangle(position.x, position.y, width, height);
         this.health = health;
 
-        // Load the sprite
         reloadSprite();
     }
 
@@ -48,7 +47,7 @@ public abstract class Materials implements Serializable {
     public void takeDamage(int damage) {
         health -= damage;
         System.out.println("Material hit! Remaining health: " + health);
-        if (health < 0) health = 0; // Ensure health doesn't go negative
+        if (health < 0) health = 0;
     }
 
     public void draw(SpriteBatch batch) {
@@ -60,12 +59,12 @@ public abstract class Materials implements Serializable {
     }
 
     private void writeObject(ObjectOutputStream out) throws IOException {
-        out.defaultWriteObject(); // Serialize non-transient fields
+        out.defaultWriteObject();
     }
 
     private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
-        in.defaultReadObject(); // Deserialize non-transient fields
-        reloadSprite(); // Reinitialize transient fields
+        in.defaultReadObject();
+        reloadSprite();
     }
 
     public int getHealth() {

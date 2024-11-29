@@ -13,12 +13,12 @@ public class Bomb extends Birds implements Serializable {
 
     public Bomb(Vector2 initialPosition, int impactDamage) {
         super("bomb.png", 50, 50, initialPosition, impactDamage);
-        this.explosionRadius = 100; // Set the radius of the explosion
+        this.explosionRadius = 100;
     }
 
     @Override
     protected void triggerAbility() {
-        System.out.println("bomb exploded");
+        System.out.println("Bomb exploded");
     }
 
     public void reloadSprite() {

@@ -10,13 +10,13 @@ import java.io.IOException;
 
 public abstract class Birds implements java.io.Serializable {
     private static final long serialVersionUID = 1L;
-    protected transient Sprite sprite; // Cannot be serialized
+    protected transient Sprite sprite;
     protected Vector2 position;
     protected Vector2 velocity;
     protected Rectangle bounds;
     protected int impactDamage;
     protected boolean abilityUsed;
-    protected String texturePath; // Store texture path for reloading after deserialization
+    protected String texturePath;
 
 
     public Birds(String texturePath, float width, float height, Vector2 initialPosition, int impactDamage) {
@@ -32,19 +32,19 @@ public abstract class Birds implements java.io.Serializable {
     }
 
     public void reloadSprite() {
-        Texture texture = new Texture(texturePath); // Reload texture
+        Texture texture = new Texture(texturePath);
         sprite = new Sprite(texture);
         sprite.setSize(bounds.width, bounds.height);
         sprite.setPosition(position.x, position.y);
     }
 
     private void writeObject(java.io.ObjectOutputStream out) throws IOException {
-        out.defaultWriteObject(); // Serialize non-transient fields
+        out.defaultWriteObject();
     }
 
     private void readObject(java.io.ObjectInputStream in) throws IOException, ClassNotFoundException {
-        in.defaultReadObject(); // Deserialize non-transient fields
-        reloadSprite(); // Recreate transient fields
+        in.defaultReadObject();
+        reloadSprite();
     }
 
     public int getImpactDamage() {
@@ -94,13 +94,12 @@ public abstract class Birds implements java.io.Serializable {
 
     public void activateAbility() {
         if (!abilityUsed) {
-            abilityUsed = true; // Mark ability as used
-            triggerAbility();   // Delegate to subclass-specific ability logic
+            abilityUsed = true;
+            triggerAbility();
         }
     }
 
     protected  void triggerAbility(){
-        // Default ability does nothing
         System.out.println("This bird has no special ability!");
     }
 
@@ -109,9 +108,7 @@ public abstract class Birds implements java.io.Serializable {
     }
 
     public void fallBack() {
-        velocity.set(-velocity.x * 0.2f, velocity.y * 0.3f); // Reverse and reduce speed
-        position.add(velocity.x * 0.1f, velocity.y * 0.1f); // Apply fallback immediately
-        sprite.setPosition(position.x, position.y); // Update sprite position
-        bounds.setPosition(position.x, position.y); // Update bounds
+        velocity.set(-velocity.x * 0.2f, velocity.y * 0.3f);
+        position.add(velocity.x * 0.1f, velocity.y * 0.1f);
     }
 }

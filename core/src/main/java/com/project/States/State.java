@@ -18,7 +18,6 @@ public abstract class State implements Serializable {
         this.v = new Vector2();
     }
 
-    // No-argument constructor for serialization
     public State() {
         this.manager = null;
         this.camera = new OrthographicCamera();
@@ -31,11 +30,9 @@ public abstract class State implements Serializable {
     public abstract void dispose() ;
 
     public void pause() {
-        // Called when the state is paused
     }
 
     public void resume() {
-        // Called when the state is resumed
     }
 
 }

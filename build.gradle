@@ -1,7 +1,4 @@
 buildscript {
-  plugins {
-    id 'java'
-  }
   repositories {
     mavenCentral()
     maven { url 'https://s01.oss.sonatype.org' }
@@ -12,7 +9,7 @@ buildscript {
     maven { url 'https://s01.oss.sonatype.org/content/repositories/snapshots/' }
   }
   dependencies {
-    testImplementation 'junit:junit:4.13.2' // JUnit 4 dependency
+
 
   }
 }

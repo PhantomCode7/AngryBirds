@@ -10,13 +10,13 @@ import java.io.*;
 public abstract class Pig implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    protected transient Sprite sprite; // Non-serializable
-    protected String texturePath; // Store the texture path
+    protected transient Sprite sprite;
+    protected String texturePath;
     protected Vector2 position;
     protected Rectangle bounds;
     private int health;
     private float width;
-    private float height; // Health or hitpoints of the pig
+    private float height;
 
     public Pig(String texturePath, float width, float height, Vector2 initialPosition, int health) {
         this.texturePath = texturePath;
@@ -26,8 +26,6 @@ public abstract class Pig implements Serializable {
         this.width = width;
         this.height = height;
 
-
-        // Initialize sprite
         reloadSprite();
     }
 
@@ -54,7 +52,7 @@ public abstract class Pig implements Serializable {
     public void takeDamage(int damage) {
         setHealth(getHealth() - damage);
         System.out.println("Pig hit! Remaining health: " + getHealth());
-        if (getHealth() < 0) setHealth(0); // Ensure health doesn’t go negative
+        if (getHealth() < 0) setHealth(0);
     }
 
     public boolean isDestroyed() {
@@ -76,12 +74,12 @@ public abstract class Pig implements Serializable {
     }
 
     private void writeObject(ObjectOutputStream out) throws IOException {
-        out.defaultWriteObject(); // Serialize non-transient fields
+        out.defaultWriteObject();
     }
 
     private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
-        in.defaultReadObject(); // Deserialize non-transient fields
-        reloadSprite(); // Reinitialize the transient fields
+        in.defaultReadObject();
+        reloadSprite();
     }
 
     public int getHealth() {

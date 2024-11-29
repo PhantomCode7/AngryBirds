@@ -45,19 +45,15 @@ public class TheBlues extends Birds implements Serializable {
             hasSplit = true;
             System.out.println("The Blues split into three!");
 
-            // Calculate positions for the two new birds
-            Vector2 leftPosition = position.cpy().add(-20, 20);  // Slightly to the left
-            Vector2 rightPosition = position.cpy().add(20, 20); // Slightly to the right
+            Vector2 leftPosition = position.cpy().add(-20, 20);
+            Vector2 rightPosition = position.cpy().add(20, 20);
 
-            // Create new bird instances
-            leftBird = new TheBlues(leftPosition, impactDamage / 2, gameScreen);  // Example of a smaller bird
+            leftBird = new TheBlues(leftPosition, impactDamage / 2, gameScreen);
             rightBird = new TheBlues(rightPosition, impactDamage / 2, gameScreen);
 
-            // Set the same velocity as the parent bird
             leftBird.setVelocity(new Vector2(velocity.x, velocity.y));
             rightBird.setVelocity(new Vector2(velocity.x, velocity.y));
 
-            // Add the new birds to the GameScreen birds list
             gameScreen.getBirds().add(leftBird);
             gameScreen.getBirds().add(rightBird);
         }
@@ -106,7 +102,6 @@ public class TheBlues extends Birds implements Serializable {
     }
 
     private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
-        in.defaultReadObject(); // Deserialize non-transient fields
-        // gameScreen will be set externally
+        in.defaultReadObject();
     }
 }

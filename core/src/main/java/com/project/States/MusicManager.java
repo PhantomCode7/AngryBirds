@@ -10,7 +10,6 @@ public class MusicManager {
     private boolean isMuted = false;
 
     private MusicManager() {
-        // Private constructor to prevent instantiation
     }
 
     public static MusicManager getInstance() {
@@ -60,10 +59,10 @@ public class MusicManager {
 
     public void toggleMute() {
         if (isMuted) {
-            backgroundMusic.setVolume(1.0f); // Restore volume
+            backgroundMusic.setVolume(1.0f);
             isMuted = false;
         } else {
-            backgroundMusic.setVolume(0.0f); // Mute volume
+            backgroundMusic.setVolume(0.0f);
             isMuted = true;
         }
     }

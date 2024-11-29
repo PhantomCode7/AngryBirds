@@ -43,13 +43,12 @@ public class GameScreen extends State implements Serializable {
 
     private static GameScreen instance;
 
+    //logic for destroying blocks above the destroyed block
     public void destroyAbove(Materials baseMaterial) {
         float baseY = baseMaterial.getBounds().y; // Y-coordinate of the destroyed block
         boolean flag = false;
         for (int i = 0; i < materials.size(); i++) {
             Materials material = materials.get(i);
-            //boolean flag = false ;
-
 
             if (materials.get(i) != baseMaterial && material.getBounds().overlaps(baseMaterial.getBounds()) && material.getBounds().y >= baseY) {
                 flag = true;
@@ -70,6 +69,7 @@ public class GameScreen extends State implements Serializable {
 
     }
 
+    //game screen constructor
     public GameScreen(StateManager manager) {
         super(manager);
         batch = new SpriteBatch();
@@ -83,11 +83,12 @@ public class GameScreen extends State implements Serializable {
         initializeMaterials();
     }
 
+    //empty constructor for deserialization
     private GameScreen() {
-        // Empty constructor for deserialization
         super(null);
     }
 
+    //initializing pause button
     private void initializePauseButton() {
         Texture pauseTexture = new Texture("pauseButton.png");
         pauseButton = new Sprite(pauseTexture);
@@ -95,6 +96,7 @@ public class GameScreen extends State implements Serializable {
         pauseButton.setPosition(750, 450); // Adjust position as needed (top-right corner)
     }
 
+    //initializing background
     private void initializeBackground() {
 
         background = new Sprite(new Texture("gameBackground.png"));
@@ -102,6 +104,7 @@ public class GameScreen extends State implements Serializable {
         background.setPosition(0, 0);
     }
 
+    //initializing ground
     private void initializeGround() {
         ground = new Rectangle(0, 0, 800, 10);
     }
@@ -112,13 +115,14 @@ public class GameScreen extends State implements Serializable {
         slingshot.setPosition(125 , 50);
     }
 
+    //initializing birds
     private void initializeBirds() {
         birds = new ArrayList<>();
 
         // Initial position for all birds (at the slingshot)
         birdInitialPosition = new Vector2(slingshot.getX() + slingshot.getWidth() / 2 - 25, slingshot.getY() + slingshot.getHeight());
 
-        // Add instances of your existing Birds classes
+        // Add birds to the list
         birds.add(new Red(birdInitialPosition.cpy()));
         birdInitialPosition = new Vector2(100,50) ;
         birds.add(new TheBlues(birdInitialPosition.cpy(), 30, this));
@@ -130,7 +134,7 @@ public class GameScreen extends State implements Serializable {
         birds.add(new Terence(birdInitialPosition.cpy()));
     }
 
-
+    //initializing pigs
     private void initializePigs() {
         pigs = new ArrayList<>();
 
@@ -139,10 +143,11 @@ public class GameScreen extends State implements Serializable {
         pigs.add(new MediumPig(new Vector2(625, 150)));
     }
 
+    //initializing materials
     private void initializeMaterials() {
         materials = new ArrayList<>();
 
-
+        // Add materials to the list
         materials.add(new Wooden("wood_vertical.png", 20 , 100 , new Vector2(600, 50)));
         materials.add(new Wooden("wood_vertical.png", 20 , 100 , new Vector2( 685, 50)));
         materials.add(new Wooden ("wood_horizontal.png" , 100 , 20 , new Vector2(600, 149)));
@@ -151,7 +156,7 @@ public class GameScreen extends State implements Serializable {
         materials.add(new Iron ("iron_horizontal.png" , 100 , 20 , new Vector2(600, 267)));
     }
 
-
+    //input method needs to be implemented
     @Override
     public void input() {
         if (Gdx.input.justTouched()) {
@@ -162,6 +167,7 @@ public class GameScreen extends State implements Serializable {
             touch.set(x, y);
             Main.viewport.unproject(touch);
 
+            //pause button accessing pause screen and saving game
             if (pauseButton.getBoundingRectangle().contains(touch.x, touch.y)) {
                 Main.a = 1 ;
                 saveGame();

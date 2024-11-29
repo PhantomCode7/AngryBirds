@@ -13,7 +13,7 @@ public class Chuck extends Birds implements Serializable {
 
     @Override
     protected void triggerAbility() {
-        // Double the bird's velocity for a speed boost
+
         velocity.scl(2.0f);
     }
 

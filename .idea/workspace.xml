@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bdde4f6-226d-498d-9fb9-ebe248c631de" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Tests/GameScreenTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -14,15 +13,28 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/Level3.ser" beforeDir="false" afterPath="$PROJECT_DIR$/assets/Level3.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/LevelNumber.txt" beforeDir="false" afterPath="$PROJECT_DIR$/assets/LevelNumber.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/gameState.ser" beforeDir="false" afterPath="$PROJECT_DIR$/assets/gameState.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/libs/core-$projectVersion.jar" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/libs/core-$projectVersion.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Birds.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Birds.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Bomb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Chuck.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Chuck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Terence.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/Terence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/TheBlues.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Birds/TheBlues.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Materials/Glass.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Materials/Glass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Materials/Iron.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Materials/Iron.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Materials/Materials.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Materials/Materials.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Materials/Wooden.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Materials/Wooden.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/MusicManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/MusicManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Pigs/Pig.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Pigs/Pig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/GameScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/Level2.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/Level2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/Level3.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/Screens/Level3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/State.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/StateManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/project/States/StateManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/Tests/GameScreenTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/error.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/project/States/temp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lwjgl3/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/lwjgl3/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,35 +111,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Gradle.AngryBirds [run].executor": "Run",
-    "Gradle.AngryBirds:core [:core:BirdsSerializationTest.main()].executor": "Run",
-    "Gradle.AngryBirds:core [:core:com.project.States.BirdsSerializationTest.main()].executor": "Run",
-    "Gradle.AngryBirds:core [:core:com.project.States.temp.main()].executor": "Run",
-    "Gradle.X:/AngryBirds.executor": "Run",
-    "JUnit.GameScreenTest.executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/aggar/OneDrive/Desktop/folderProject - Copy (3)",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Gradle.AngryBirds [run].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.AngryBirds:core [:core:BirdsSerializationTest.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.AngryBirds:core [:core:com.project.States.BirdsSerializationTest.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.AngryBirds:core [:core:com.project.States.temp.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.X:/AngryBirds.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameScreenTest.executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;X:/tmep&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="X:\AngryBirds\core\src\main\java\com\project\States" />
@@ -210,6 +222,8 @@
       <workItem from="1732842994251" duration="715000" />
       <workItem from="1732850950622" duration="2439000" />
       <workItem from="1732853654774" duration="2126000" />
+      <workItem from="1732886084330" duration="869000" />
+      <workItem from="1732887064753" duration="864000" />
     </task>
     <servers />
   </component>

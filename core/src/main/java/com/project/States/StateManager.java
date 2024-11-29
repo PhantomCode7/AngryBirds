@@ -32,7 +32,7 @@ public class StateManager {
     public void set(State state) {
         if (!states.isEmpty()) {
             State oldState = states.pop();
-            if (oldState != state) { // Avoid disposing and re-adding the same state
+            if (oldState != state) {
                 oldState.dispose();
             }
         }
