@@ -202,7 +202,7 @@ public class GameScreen extends State implements Serializable {
                     // Move the bird to follow the drag
                     currentBird.setPosition(dragEnd.x - currentBird.getWidth() / 2, dragEnd.y - currentBird.getHeight() / 2);
                     //currentBirdIndex++;
-                    //birds.get(currentBirdIndex).setPosition(  slingshot.getX() + slingshot.getWidth() / 2 - 25, slingshot.getY() + slingshot.getHeight());
+                    birds.get(currentBirdIndex).setPosition(  slingshot.getX() + slingshot.getWidth() / 2 - 25, slingshot.getY() + slingshot.getHeight());
                 }
             } else {
                 if (isDragging) {
@@ -211,7 +211,7 @@ public class GameScreen extends State implements Serializable {
 
                     // Calculate launch velocity: opposite direction of the drag
                     Vector2 v = new Vector2 (slingshot.getX() + slingshot.getWidth() / 2 - 25, slingshot.getY() + slingshot.getHeight()) ;
-                    Vector2 launchVelocity = v.cpy().sub(dragEnd).scl(13f); // Adjust scaling factor as needed
+                    Vector2 launchVelocity = v.cpy().sub(dragEnd).scl(15f); // Adjust scaling factor as needed
                     currentBird.setVelocity(launchVelocity);
                     birdLaunched = true;
                 }
@@ -370,6 +370,8 @@ public class GameScreen extends State implements Serializable {
         initializeBackground();
         initializeGround();
         initializeSlingshot();
+
+        reinitializeGameScreenDependencies();
     }
 
     public void saveGame() {
@@ -397,7 +399,7 @@ public class GameScreen extends State implements Serializable {
         try (ObjectInputStream in = new ObjectInputStream(new FileInputStream("gameState.ser"))) {
             GameScreen gameScreen = (GameScreen) in.readObject();
             gameScreen.setManager(manager); // Set the manager after deserialization
-            gameScreen.reinitializeGameScreenDependencies(); // Reinitialize gameScreen in TheBlues instances
+            gameScreen.reloadTransientFields(); // Reinitialize transient fields
             System.out.println("Game state loaded successfully!");
             return gameScreen;
         } catch (IOException | ClassNotFoundException e) {
